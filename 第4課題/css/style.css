@@ -1,0 +1,346 @@
+/* 
+ * サイト全体の変数定義
+ */
+ :root {
+    /* Colors */
+    --color_header: #308ce24d;
+    --color_white: #fff;
+    --color_black: #000;
+    --color_text: #333;
+
+    /* Spacing */
+    --spacing_base: 12px;
+    --spacing_md: 14px;
+    --spacing_lg: 20px;
+    --spacing_xl: 0px;
+
+    /* Sizes */
+    --header_height: 60px;
+    --service_box_width: 220px;
+    --service_box_height: 80px;
+    --hamburger_width: 30px;
+    --hamburger_height: 20px;
+
+    /* Breakpoints */
+    --breakpoint_tablet: 750px;
+    --breakpoint_service_stack: 550px;
+    --breakpoint_mobile: 550px;
+
+    /* Effects */
+    --opacity_hover: 0.5;
+    --transition_default: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/*
+ * リセットとベーススタイル
+ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/*
+ * ヘッダーコンポーネント
+ */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-color: var(--color_header);
+    padding: 0;
+}
+
+.header_left {
+    width: 50%;
+    padding-left: var(--spacing_lg);
+    text-align: center;
+}
+
+.header_right {
+    width: 50%;
+    display: flex;
+    padding-right: var(--spacing_lg);
+    text-align: left;
+}
+
+.header_nav_item {
+    margin-left: var(--spacing_lg);
+}
+
+.header_link {
+    display: block;
+    color: var(--color_white);
+    text-decoration: none;
+    padding: var(--spacing_base);
+    font-size: clamp(0.75rem, 1.5vw, 1rem);
+    transition: opacity var(--transition_default);
+}
+
+.header_link:hover {
+    opacity: var(--opacity_hover);
+}
+
+/*
+ * キービジュアルコンポーネント
+ */
+.key_visual {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-image: url('../img/kv.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.key_visual_text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--color_black);
+    font-size: clamp(1.5rem, 5vw, 3rem);
+    text-align: center;
+    white-space: nowrap;
+}
+
+/*
+ * サービスセクションコンポーネント
+ */
+h2 {
+    text-align: center;
+    margin: var(--spacing_xl) 0 var(--spacing_sm);
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+}
+
+.service_container {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* デフォルトの間隔 */
+    padding: 0 var(--spacing_lg);
+    width: 700px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* サービスボックスのスタイル変更 */
+.service_box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--service_box_width);
+    height: var(--service_box_height);
+    padding: var(--spacing_lg) 0;
+    border: 1px solid var(--color_black);
+    text-align: center;
+    flex-shrink: 0;
+    color: var(--color_text);
+    text-decoration: none;
+    font-size: clamp(0.85rem, 2vw, 1rem);
+    transition: opacity var(--transition_default), background-color var(--transition_default);
+    cursor: pointer;
+}
+
+.service_box:hover {
+    opacity: var(--opacity_hover);
+}
+
+/*
+ * ハンバーガーメニューコンポーネント
+ */
+.hamburger {
+    display: none;
+    position: relative;
+    width: var(--hamburger_width);
+    height: var(--hamburger_height);
+    margin-right: var(--spacing_lg);
+    padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.hamburger span {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color_white);
+    transition: transform var(--transition_default), opacity var(--transition_default);
+}
+
+.hamburger span:nth-child(1) { top: 0; }
+.hamburger span:nth-child(2) { top: 9px; }
+.hamburger span:nth-child(3) { top: 18px; }
+
+.hamburger.active span:nth-child(1) {
+    top: 9px;
+    transform: rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    top: 9px;
+    transform: rotate(-45deg);
+}
+
+/*
+ * レスポンシブスタイル - 段階的にgapを調整
+ */
+@media screen and (max-width: 1300px) {
+    .service_container {
+        gap: 15px;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .service_container {
+        gap: 10px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .service_container {
+        gap: 5px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .service_container {
+        gap: 3px;
+    }
+}
+
+@media screen and (max-width: 755px) {
+    .service_container {
+        gap: 1px;
+    }
+}
+
+/* タブレット対応 */
+@media screen and (max-width: 750px) {
+    .header_left {
+        width: 40%;
+        padding-left: var(--spacing_md);
+        text-align: left;
+    }
+
+    .header_right {
+        width: 60%;
+        padding-right: var(--spacing_md);
+        justify-content: flex-end;
+    }
+
+    .header_nav_item {
+        margin-left: var(--spacing_base);
+    }
+
+    .service_container {
+        padding: 0 var(--spacing_md);
+    }
+
+    /* サービスボックスをレスポンシブに */
+    .service_box {
+        width: 40%; /* 固定幅から相対幅に変更 */
+        max-width: var(--service_box_width);
+        height: var(--service_box_height);
+        padding: var(--spacing_base) var(--spacing_md);
+    }
+}
+
+@media screen and (max-width: 750px) and (min-width: 551px) {
+    .service_container {
+        max-width: 85%;
+    }
+    
+    .service_box {
+        width: 37%; /* 幅をさらに大きく */
+    }
+}
+
+/* サービスアイテムを縦積みに */
+@media screen and (max-width: 550px) {
+    .service_container {
+        flex-direction: column;
+        align-items: center;
+        gap: var(--spacing_base);
+        padding: var(--spacing_lg);
+        width: 40%; /* 縦積みの場合は幅を100%に */
+        max-width: 90%; /* 画面幅に応じて調整 */
+    }
+
+    .service_box {
+        width: 40%; /* 親コンテナの幅いっぱいに */
+        max-width: 250px; /* 最大幅を設定 */
+        height: var(--service_box_height);
+        padding: var(--spacing_base) var(--spacing_lg);
+    }
+}
+
+/* モバイルサイズ向けにさらに調整 */
+@media screen and (max-width: 550px) {
+    .hamburger {
+        display: block;
+        position: absolute;
+        top: var(--spacing_base);
+        right: var(--spacing_base);
+        z-index: 1001;
+    }
+
+    .header {
+        flex-wrap: wrap;
+        padding: var(--spacing_sm) var(--spacing_base);
+    }
+
+    .header_left {
+        width: 80%;
+    }
+
+    .header_right {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: var(--spacing_lg) 0;
+        flex-direction: column;
+        background-color: var(--color_header);
+    }
+
+    .header_right.active {
+        display: flex;
+    }
+
+    .header_nav_item {
+        margin: 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .header_nav_item p {
+        padding: var(--spacing_sm) 0;
+    }
+
+    .key_visual_text {
+        padding: 0 var(--spacing_base);
+    }
+
+    .service_box {
+        width: 100%; /* 親コンテナに対する幅 */
+        max-width: 100%; /* 最大幅を設定なし */
+        min-width: 200px; /* 最小幅を設定 */
+    }
+}
