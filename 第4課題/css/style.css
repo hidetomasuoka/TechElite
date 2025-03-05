@@ -3,16 +3,20 @@
  */
  :root {
     /* Colors */
-    --color_header: #308ce24d;
+    --color_header: #1A48A6; /* ヘッダー背景色を変更 */
     --color_white: #fff;
     --color_black: #000;
     --color_text: #333;
+    --color_highlight: #FF8C00; /* 納品の下線カラー - オレンジ */
+    --color_required: #ff4d4d;
+    --color_any: #d3d3d3;
 
     /* Spacing */
     --spacing_base: 12px;
+    --spacing_sm: 8px;
     --spacing_md: 14px;
-    --spacing_lg: 20px;
-    --spacing_xl: 0px;
+    --spacing_lg: 22px;
+    --spacing_xl: 40px;
 
     /* Sizes */
     --header_height: 60px;
@@ -23,8 +27,8 @@
 
     /* Breakpoints */
     --breakpoint_tablet: 750px;
-    --breakpoint_service_stack: 550px;
-    --breakpoint_mobile: 550px;
+    --breakpoint_service_stack: 560px;
+    --breakpoint_mobile: 560px;
 
     /* Effects */
     --opacity_hover: 0.5;
@@ -65,6 +69,9 @@ body {
     width: 50%;
     padding-left: var(--spacing_lg);
     text-align: center;
+    /* ヘッダー左側が常に最前面に表示されるように修正 */
+    position: relative;
+    z-index: 1002; /* ハンバーガーメニューより上に表示 */
 }
 
 .header_right {
@@ -115,11 +122,75 @@ body {
 }
 
 /*
+ * 我が社についてセクション
+ */
+.company-section {
+    padding: var(--spacing_xl) var(--spacing_lg);
+    text-align: center;
+    margin-bottom: var(--spacing_xl);
+}
+
+.company-section h1 {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    margin-bottom: var(--spacing_lg);
+}
+
+.company-description {
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    /* font-sizeはメディアクエリで指定 */
+}
+
+/* 大画面用 */
+@media screen and (min-width: 1200px) {
+    .company-description {
+        font-size: 2.1rem;
+    }
+}
+
+/* 中画面用 */
+@media screen and (max-width: 1199px) and (min-width: 768px) {
+    .company-description {
+        font-size: 1.8rem;
+    }
+}
+
+/* タブレット用 */
+@media screen and (max-width: 767px) and (min-width: 481px) {
+    .company-description {
+        font-size: 1.4rem;
+    }
+}
+
+/* スマホ用 */
+@media screen and (max-width: 480px) {
+    .company-description {
+        font-size: 0.9rem;
+    }
+}
+.highlight {
+    position: relative;
+    display: inline-block;
+}
+
+.highlight::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 3px; /* 2pxから3pxに変更 */
+    background-color: var(--color_highlight);
+}
+
+/*
  * サービスセクションコンポーネント
  */
 h2 {
     text-align: center;
-    margin: var(--spacing_xl) 0 var(--spacing_sm);
+    margin: var(--spacing_xl) 0 var(--spacing_lg);
     font-size: clamp(1.2rem, 3vw, 1.5rem);
 }
 
@@ -155,6 +226,133 @@ h2 {
     opacity: var(--opacity_hover);
 }
 
+/* サービスコンテンツエリア */
+.service_content {
+    max-width: 700px;
+    margin: 20px auto;
+    padding: 30px;
+    border: 1px solid #000;
+    min-height: 200px;
+}
+
+.service_content p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+/*
+ * お問い合わせフォームセクション
+ */
+.contact-section {
+    max-width: 600px; /* 横幅を600pxに設定 */
+    margin: var(--spacing_xl) auto;
+    padding: 0 var(--spacing_lg);
+}
+
+.form-group {
+    margin-bottom: var(--spacing_lg);
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: var(--spacing_sm);
+    font-weight: normal; /* 太字から通常に変更 */
+    font-size: 1rem;
+}
+
+.required {
+    color: var(--color_required);
+    font-size: 0.7rem; /* 文字を小さく */
+}
+
+.any {
+    color: var(--color_any);
+    font-size: 0.7rem; /* 文字を小さく */
+}
+
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: var(--spacing_md); /* パディングを大きく */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    height: 60px; /* 入力欄の高さを設定 */
+}
+
+.form-group select {
+    appearance: none; /* カスタムセレクトボックス用 */
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 1em;
+    padding-right: 30px;
+    font-size: 1rem; /* リストの文字サイズを調整 */
+}
+
+.form-actions {
+    text-align: center;
+    margin-top: var(--spacing_xl);
+}
+
+.submit-btn {
+    color: #000; /* 文字色を黒に変更 */
+    border: 1px solid #ccc;
+    width: 100%; /* リストと同じ幅にする */
+    padding: var(--spacing_md);
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    height: 50px; /* ボタンの高さを設定 */
+}
+
+.submit-btn:hover {
+    background-color: #a0a0a0; /* ホバー時はさらに少し暗いグレー */
+}
+
+/* プレースホルダーのスタイル */
+::placeholder {
+    color: #aaa;
+    font-size: 0.9rem;
+}
+
+/*
+ * お問い合わせ完了ページ
+ */
+.thanks-container {
+    max-width: 700px;
+    margin: 120px auto 0;
+    padding: var(--spacing_xl) var(--spacing_lg);
+    text-align: center;
+}
+
+.thanks-container h1 {
+    margin-bottom: var(--spacing_xl);
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.thanks-container p {
+    margin-bottom: var(--spacing_xl);
+    font-size: clamp(1rem, 2vw, 1.25rem);
+}
+
+.back-btn {
+    display: inline-block;
+    background-color: var(--color_header);
+    color: var(--color_white);
+    text-decoration: none;
+    padding: var(--spacing_md) var(--spacing_xl);
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: background-color var(--transition_default);
+}
+
+.back-btn:hover {
+    background-color: #143a8c;
+}
+
 /*
  * ハンバーガーメニューコンポーネント
  */
@@ -168,6 +366,7 @@ h2 {
     background: none;
     border: none;
     cursor: pointer;
+    z-index: 1001; /* 常に最前面に表示 */
 }
 
 .hamburger span {
@@ -259,6 +458,10 @@ h2 {
         height: var(--service_box_height);
         padding: var(--spacing_base) var(--spacing_md);
     }
+    
+    .company-description {
+        padding: 0 var(--spacing_md);
+    }
 }
 
 @media screen and (max-width: 750px) and (min-width: 551px) {
@@ -272,7 +475,7 @@ h2 {
 }
 
 /* サービスアイテムを縦積みに */
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 560px) {
     .service_container {
         flex-direction: column;
         align-items: center;
@@ -288,10 +491,14 @@ h2 {
         height: var(--service_box_height);
         padding: var(--spacing_base) var(--spacing_lg);
     }
+    
+    .company-section h1 {
+        margin-top: var(--spacing_xl);
+    }
 }
 
 /* モバイルサイズ向けにさらに調整 */
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 560px) {
     .hamburger {
         display: block;
         position: absolute;
@@ -315,13 +522,56 @@ h2 {
         top: 100%;
         left: 0;
         width: 100%;
-        padding: var(--spacing_lg) 0;
+        padding: 0;
         flex-direction: column;
         background-color: var(--color_header);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height var(--transition_default);
     }
 
+    /* ハンバーガーメニューが開いたときのヘッダー右部分 - 修正箇所 */
     .header_right.active {
         display: flex;
+        max-height: none; /* 高さ制限を解除 */
+        position: fixed; /* 画面に固定 */
+        top: var(--header_height); /* ヘッダーの高さ分下げる - 修正 */
+        left: 0;
+        width: 100%;
+        height: auto; /* 高さを自動調整に変更 */
+        background-color: var(--color_header);
+        flex-direction: column;
+        padding: 0; /* パディングを調整 - 修正 */
+        z-index: 1000;
+        /* ヘッダーの下に表示されるように調整 */
+    }
+
+    /* ナビゲーションアイテムのスタイル */
+    .header_right.active .header_nav_item {
+        margin: 0;
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 1);
+        padding: 12px 0; /* 縦のパディングを小さく */
+    }
+
+    /* 最初のナビゲーションアイテムに上部の境界線を追加 */
+    .header_right.active .header_nav_item:first-child {
+        border-top: 1px solid rgba(255, 255, 255, 1);
+    }
+
+    /* リンクのテキストスタイル */
+    .header_right.active .header_link {
+        font-size: 0.8rem; /* フォントサイズを小さく */
+        padding: 8px 0;
+    }
+
+    /* 閉じるボタン（X）のスタイル */
+    .hamburger.active {
+        position: fixed;
+        top: 15px;
+        right: 15px;
+        z-index: 1001;
     }
 
     .header_nav_item {
@@ -340,7 +590,41 @@ h2 {
 
     .service_box {
         width: 100%; /* 親コンテナに対する幅 */
-        max-width: 100%; /* 最大幅を設定なし */
+        max-width: 100%; /* 最大幅.header_right.active .header_linkを設定なし */
         min-width: 200px; /* 最小幅を設定 */
     }
+    /* サービスボックスのアクティブ状態を定義 */
+    .service_box.active {
+        font-weight: bold;
+    }
+    .submenu {
+        display: none;
+        padding-left: 15px;
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height 0.3s ease-out;
+      }
+      
+      .submenu.open {
+        display: block;
+        max-height: 500px; /* サブメニューの最大高さ */
+        transition: max-height 0.5s ease-in;
+      }
+      
+      .menu-title {
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: var(--spacing_base);
+        color: var(--color_white);
+      }
+      
+      .toggle-icon {
+        transition: transform 0.3s ease;
+      }
+      
+      .toggle-icon.open {
+        transform: rotate(45deg);
+      }
 }
