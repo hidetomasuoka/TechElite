@@ -5,9 +5,7 @@ $(document).ready(function() {
     const $body = $('body');
     const $header = $('.header');
     const $headerLeft = $('.header_left');
-    const $menuTitle = $('.menu-title');
-    const $submenu = $('.submenu');
-    const $toggleIcon = $('.toggle-icon');
+    const $headerNavItems = $('.header_nav_item');
 
     // ヘッダーの高さを取得してCSSカスタムプロパティに設定
     const headerHeight = $header.outerHeight();
@@ -27,37 +25,36 @@ $(document).ready(function() {
             $body.css('overflow', '');
             // 通常のz-indexに戻す
             $headerLeft.css('z-index', '');
-            
-            // メニューを閉じるときにサブメニューも全て閉じる
-            $submenu.removeClass('open');
-            $toggleIcon.removeClass('open');
         }
     });
 
-    // アコーディオンメニューの処理
-    $menuTitle.on('click', function(e) {
+    // ヘッダーナビゲーションアイテムのクリックイベント（アコーディオン動作）
+    $headerNavItems.on('click', function(e) {
+        // リンク要素がクリックされた場合はデフォルトの動作を許可
+        if ($(e.target).is('a') || $(e.target).parent().is('a')) {
+            return;
+        }
+        
         e.preventDefault();
+        e.stopPropagation();
         
-        // クリックされたメニューのサブメニューとアイコンを取得
-        const $clickedSubmenu = $(this).siblings('.submenu');
-        const $clickedIcon = $(this).find('.toggle-icon');
+        // 現在のアイテムを開閉する
+        $(this).toggleClass('active');
         
-        // 現在のサブメニューの開閉状態を切り替える
-        $clickedSubmenu.toggleClass('open');
-        $clickedIcon.toggleClass('open');
+        // モバイルメニューが開いている場合のみアコーディオン動作
+        if ($nav.hasClass('active') && $(window).width() <= 560) {
+            // 他のナビアイテムを閉じる
+            $headerNavItems.not($(this)).removeClass('active');
+        }
     });
 
-    // サブメニュー内のリンククリック時にメニューを閉じる
-    $('.submenu .header_link, .header_right .header_link').on('click', function() {
+    // ナビゲーション内のリンククリック時にメニューを閉じる
+    $('.header_right .header_link').on('click', function() {
         $hamburger.removeClass('active');
         $nav.removeClass('active');
         $body.css('overflow', '');
-        // 通常のz-indexに戻す
         $headerLeft.css('z-index', '');
-        
-        // すべてのサブメニューを閉じる
-        $submenu.removeClass('open');
-        $toggleIcon.removeClass('open');
+        $headerNavItems.removeClass('active');
     });
     
     // 画面サイズが変わった時のリセット処理
@@ -66,12 +63,8 @@ $(document).ready(function() {
             $hamburger.removeClass('active');
             $nav.removeClass('active');
             $body.css('overflow', '');
-            // 通常のz-indexに戻す
             $headerLeft.css('z-index', '');
-            
-            // サブメニューを閉じる
-            $submenu.removeClass('open');
-            $toggleIcon.removeClass('open');
+            $headerNavItems.removeClass('active');
         }
         
         // ヘッダーの高さを再計算
