@@ -16,9 +16,6 @@ $(function(){
         }
     };
     
-    // 最後にクリックされたサービス名を保持する変数（デフォルトは最初のサービス）
-    let lastClickedService = Object.keys(serviceConfig)[0];
-    
     // 1. ヘッダーの「サービス」リンククリック時のスクロール処理
     $('.header_link').on('click', function(e) {
         e.preventDefault();
@@ -42,64 +39,53 @@ $(function(){
     if ($('.service_content').length === 0) {
         $('.service_container').after('<div class="service_content"></div>');
         
+        // 最初のサービスボックスにactiveクラスを付与
+        $('.service_box').first().addClass('active');
+        
         // 初期コンテンツを表示（デフォルトサービスのコンテンツ）
-        updateServiceContent(lastClickedService);
+        const defaultService = $('.service_box').first().text().trim();
+        updateServiceContent(defaultService);
     }
     
-    // 2. サービスリンク設定（初期状態とホバー効果）
-    $('.service_box').each(function() {
-        const $serviceBox = $(this);
-        const serviceName = $serviceBox.text().trim();
-        
-        // 初期状態でデフォルトのサービスを選択状態にする
-        if (serviceName === lastClickedService) {
-            selectService($serviceBox, serviceName);
-        }
-        
-        // ホバー時の効果を設定
-        $serviceBox.hover(
-            function() {
-                // クリックされていない場合のみホバー効果を適用
-                if (lastClickedService !== serviceName) {
-                    $(this).css({
-                        'background-color': serviceConfig[serviceName].color,
-                        'transition': 'background-color 0.5s ease'
-                    });
-                }
-            },
-            function() {
-                // クリックされていない場合のみ背景色をクリア
-                if (lastClickedService !== serviceName) {
-                    $(this).css('background-color', '');
-                }
+    // 2. サービスリンクのホバー効果
+    $('.service_box').hover(
+        function() {
+            // activeクラスが付いていない場合のみホバー効果を適用
+            if (!$(this).hasClass('active')) {
+                const serviceName = $(this).text().trim();
+                $(this).css({
+                    'background-color': serviceConfig[serviceName].color,
+                    'transition': 'background-color 0.5s ease'
+                });
             }
-        );
-    });
+        },
+        function() {
+            // activeクラスが付いていない場合のみ背景色をクリア
+            if (!$(this).hasClass('active')) {
+                $(this).css('background-color', '');
+            }
+        }
+    );
     
     // 3. サービスリンクのクリックイベント
     $(document).on('click', '.service_box', function(e) {
         e.preventDefault();
         
+        // すべてのサービスボックスからactiveクラスを削除
+        $('.service_box').removeClass('active');
+        
+        // クリックされたサービスボックスにactiveクラスを追加
+        $(this).addClass('active');
+        
+        // サービス名を取得してコンテンツを更新
         const serviceName = $(this).text().trim();
         
-        // サービスを選択
-        selectService($(this), serviceName);
+        // 選択されたサービスの背景色を設定
+        $(this).css('background-color', serviceConfig[serviceName].color);
         
         // コンテンツを更新
         updateServiceContent(serviceName);
     });
-    
-    // サービス選択時の処理
-    function selectService($element, serviceName) {
-        // 前回選択されたサービスの背景色をクリア
-        $('.service_box').css('background-color', '');
-        
-        // 新しく選択されたサービスの背景色を設定
-        $element.css('background-color', serviceConfig[serviceName].color);
-        
-        // 選択されたサービスを記録
-        lastClickedService = serviceName;
-    }
     
     // コンテンツ更新処理
     function updateServiceContent(serviceName) {
@@ -125,6 +111,11 @@ $(function(){
             margin-bottom: 15px;
             font-size: 1rem;
             line-height: 1.6;
+        }
+        
+        /* activeクラスのスタイル */
+        .service_box.active {
+            font-weight: bold;
         }
         
         /* レスポンシブ対応 */
@@ -166,9 +157,9 @@ $(function(){
         /* タブレット対応 (750px以下) */
         @media screen and (max-width: 750px) {
             .service_content {
-            max-width: 90%; /* 60pxから変更 */
-            margin: 5px auto;
-            padding: 18px;
+                max-width: 90%; /* 60pxから変更 */
+                margin: 5px auto;
+                padding: 18px;
             }
             .service_content p {
                 line-height: 1.5;
