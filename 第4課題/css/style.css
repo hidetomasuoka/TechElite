@@ -86,7 +86,7 @@ body {
 }
 
 .header_link {
-    display: block;
+    display: inline-block; /* blockからinline-blockに変更 */
     color: var(--color_white);
     text-decoration: none;
     padding: var(--spacing_base);
@@ -173,17 +173,10 @@ body {
 .highlight {
     position: relative;
     display: inline-block;
+    background: linear-gradient(transparent 60%, var(--color_highlight) 60%);
+    padding-bottom: 2px;
 }
 
-.highlight::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -2px;
-    width: 100%;
-    height: 3px; /* 2pxから3pxに変更 */
-    background-color: var(--color_highlight);
-}
 
 /*
  * サービスセクションコンポーネント
@@ -358,15 +351,18 @@ h2 {
  */
 .hamburger {
     display: none;
-    position: relative;
+    position: absolute;
     width: var(--hamburger_width);
     height: var(--hamburger_height);
-    margin-right: var(--spacing_lg);
     padding: 0;
     background: none;
     border: none;
     cursor: pointer;
     z-index: 1001; /* 常に最前面に表示 */
+    /* ヘッダー内で上下中央配置 */
+    top: 50%;
+    right: var(--spacing_lg);
+    transform: translateY(-50%);
 }
 
 .hamburger span {
@@ -501,10 +497,7 @@ h2 {
 @media screen and (max-width: 560px) {
     .hamburger {
         display: block;
-        position: absolute;
-        top: var(--spacing_base);
         right: var(--spacing_base);
-        z-index: 1001;
     }
 
     .header {
@@ -568,10 +561,13 @@ h2 {
 
     /* 閉じるボタン（X）のスタイル */
     .hamburger.active {
+        /* 固定位置はそのままに */
         position: fixed;
-        top: 15px;
-        right: 15px;
-        z-index: 1001;
+        /* 元の位置を維持するため、ヘッダーと同じ高さの位置に固定 */
+        top: 30px; /* ヘッダーの高さに合わせて調整 */
+        right: var(--spacing_base);
+        /* 中央配置のtransformを削除して位置を安定させる */
+        transform: none;
     }
 
     .header_nav_item {

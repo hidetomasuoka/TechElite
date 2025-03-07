@@ -38,14 +38,20 @@ $(function(){
     // サービスコンテンツエリアの初期化
     if ($('.service_content').length === 0) {
         $('.service_container').after('<div class="service_content"></div>');
-        
-        // 最初のサービスボックスにactiveクラスを付与
-        $('.service_box').first().addClass('active');
-        
-        // 初期コンテンツを表示（デフォルトサービスのコンテンツ）
-        const defaultService = $('.service_box').first().text().trim();
-        updateServiceContent(defaultService);
     }
+    
+    // 初期表示で「WEB制作」を選択状態にする
+    const defaultService = 'WEB制作';
+    const $defaultServiceBox = $('.service_box').filter(function() {
+        return $(this).text().trim() === defaultService;
+    });
+    
+    // 初期選択状態のスタイル設定
+    $defaultServiceBox.addClass('active');
+    $defaultServiceBox.css('background-color', serviceConfig[defaultService].color);
+    
+    // 初期コンテンツを表示
+    $('.service_content').html(serviceConfig[defaultService].content);
     
     // 2. サービスリンクのホバー効果
     $('.service_box').hover(
@@ -67,32 +73,35 @@ $(function(){
         }
     );
     
-    // 3. サービスリンクのクリックイベント
-    $(document).on('click', '.service_box', function(e) {
+    // 3. サービスリンクのクリックイベント - シンプル化した実装
+    $('.service_box').on('click', function(e) {
         e.preventDefault();
         
-        // すべてのサービスボックスからactiveクラスを削除
-        $('.service_box').removeClass('active');
+        const $this = $(this);
+        const serviceName = $this.text().trim();
+        const isActive = $this.hasClass('active');
         
-        // クリックされたサービスボックスにactiveクラスを追加
-        $(this).addClass('active');
+        // 現在選択中のものと同じボタンをクリックした場合
+        if (isActive) {
+            // クリックされたボックスの状態をリセット
+            $this.removeClass('active');
+            $this.css('background-color', '');
+            
+            // コンテンツをクリア
+            $('.service_content').empty();
+            return;
+        }
         
-        // サービス名を取得してコンテンツを更新
-        const serviceName = $(this).text().trim();
+        // 他のサービスボックスの状態をリセット
+        $('.service_box').removeClass('active').css('background-color', '');
         
-        // 選択されたサービスの背景色を設定
-        $(this).css('background-color', serviceConfig[serviceName].color);
+        // クリックされたボックスをアクティブにする
+        $this.addClass('active');
+        $this.css('background-color', serviceConfig[serviceName].color);
         
         // コンテンツを更新
-        updateServiceContent(serviceName);
+        $('.service_content').html(serviceConfig[serviceName].content);
     });
-    
-    // コンテンツ更新処理
-    function updateServiceContent(serviceName) {
-        $('.service_content').fadeOut(300, function() {
-            $(this).html(serviceConfig[serviceName].content).fadeIn(300);
-        });
-    }
     
     // CSSの追加
     const serviceContentCSS = `

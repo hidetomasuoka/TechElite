@@ -10,6 +10,8 @@ $(document).ready(function() {
     // HTML要素の参照を取得
     const $prefectureSelect = $('#prefecture');
     const $citySelect = $('#city');
+    const $telInput = $('#tel');
+    const $form = $('form');
 
     // 都道府県のセレクトボックスを設定
     if ($prefectureSelect.length > 0) {
@@ -54,5 +56,56 @@ $(document).ready(function() {
     // 都道府県の変更を監視
     if ($prefectureSelect.length > 0 && $citySelect.length > 0) {
         $prefectureSelect.on('change', updateCities);
+    }
+    
+    // 電話番号入力フィールドの親要素にエラーメッセージコンテナを追加
+    if ($telInput.length > 0) {
+        // もし既存のエラーメッセージコンテナがあれば削除
+        $telInput.parent().find('.tel-error-message').remove();
+        
+        // 電話番号フィールドの後にエラーメッセージコンテナを追加
+        $telInput.after('<div class="tel-error-message" style="color: red; font-size: 0.8rem; margin-top: 5px; display: none;"></div>');
+        const $errorMessage = $telInput.next('.tel-error-message');
+        
+        // フォーム送信時の検証
+        $form.on('submit', function(e) {
+            // 電話番号の値を取得
+            const telValue = $telInput.val().trim();
+            
+            // すべてのエラーメッセージを非表示にしてリセット
+            $errorMessage.hide();
+            
+            // 電話番号が入力されている場合のみバリデーション
+            if (telValue !== '') {
+                // 数字のみかチェック
+                const isNumeric = /^\d+$/.test(telValue);
+                if (!isNumeric) {
+                    // エラーメッセージを表示
+                    $errorMessage.text('電話番号は数字のみ入力してください').show();
+                    // 電話番号入力欄にフォーカス
+                    $telInput.focus();
+                    // 送信を中止
+                    e.preventDefault();
+                    return false;
+                }
+                
+                // 桁数チェック (9桁以上12桁以下)
+                if (telValue.length < 9 || telValue.length > 12) {
+                    // エラーメッセージを表示
+                    $errorMessage.text('電話番号は9桁以上12桁以下で入力してください').show();
+                    // 電話番号入力欄にフォーカス
+                    $telInput.focus();
+                    // 送信を中止
+                    e.preventDefault();
+                    return false;
+                }
+            }
+            // 電話番号が空の場合または検証成功の場合は処理を続行
+        });
+        
+        // 入力中にエラーメッセージを非表示
+        $telInput.on('input', function() {
+            $errorMessage.hide();
+        });
     }
 });
