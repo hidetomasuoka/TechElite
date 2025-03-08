@@ -571,7 +571,7 @@ h1 {
         /* 固定位置はそのままに */
         position: fixed;
         /* 元の位置を維持するため、ヘッダーと同じ高さの位置に固定 */
-        top: 30px; /* ヘッダーの高さに合わせて調整 */
+        top: 20px; /* ヘッダーの高さに合わせて調整 */
         right: var(--spacing_base);
         /* 中央配置のtransformを削除して位置を安定させる */
         transform: none;
