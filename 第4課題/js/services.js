@@ -175,7 +175,7 @@ $(function(){
             }
         }
         
-        /* 中間サイズのレスポンシブ対応（750px～650px） */
+        /* 中間サイズのレスポンシブ対応（750px～551px） */
         @media screen and (max-width: 750px) and (min-width: 551px) {
             .service_content {
                 max-width: 90%; 
