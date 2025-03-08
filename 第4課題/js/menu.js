@@ -2,7 +2,17 @@ $(document).ready(function() {
     // ハンバーガーメニューの処理
     $('.hamburger').on('click', function() {
         $(this).toggleClass('active');
-        $('.header_right').toggleClass('active');
+        
+        // slideToggle()を使用してアニメーションをスムーズにする
+        $('.header_right').slideToggle(300, function() {
+            // アニメーション完了後にactiveクラスの付け外しを行う
+            $(this).toggleClass('active');
+            
+            // 表示状態を維持するためにdisplayプロパティを調整
+            if ($(this).hasClass('active')) {
+                $(this).css('display', 'flex');
+            }
+        });
     });
 
     // header_nav_itemのクリックイベント - アコーディオンメニューの範囲を拡大
@@ -34,7 +44,9 @@ $(document).ready(function() {
         // モバイル表示でメニューが開いている場合は閉じる
         if ($('.header_right').hasClass('active')) {
             $('.hamburger').removeClass('active');
-            $('.header_right').removeClass('active');
+            $('.header_right').slideUp(300, function() {
+                $(this).removeClass('active');
+            });
         }
     });
 });

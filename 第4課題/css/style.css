@@ -555,15 +555,12 @@ h1 {
         padding: 0;
         flex-direction: column;
         background-color: var(--color_header);
-        max-height: 0;
-        overflow: hidden;
         transition: max-height var(--transition_default);
     }
 
     /* ハンバーガーメニューが開いたときのヘッダー右部分 - 修正箇所 */
     .header_right.active {
         display: flex;
-        max-height: none; /* 高さ制限を解除 */
         position: fixed; /* 画面に固定 */
         top: var(--header_height); /* ヘッダーの高さ分下げる - 修正 */
         left: 0;
