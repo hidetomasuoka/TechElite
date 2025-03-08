@@ -81,8 +81,23 @@ body {
     text-align: left;
 }
 
+/* ヘッダーナビゲーションアイテムをクリック可能に */
 .header_nav_item {
     margin-left: var(--spacing_base);
+    cursor: pointer; /* カーソルをポインターに変更して、クリック可能であることを示す */
+    transition: opacity var(--transition_default);
+}
+
+.header_nav_item:hover {
+    opacity: var(--opacity_hover);
+}
+
+/* 幅いっぱいに広げて、クリック領域を拡大 */
+.header_nav_item p {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
 }
 
 .header_link {
@@ -500,6 +515,21 @@ h1 {
     }
 }
 
+/* モバイル表示時のスタイル */
+@media screen and (max-width: 560px) {
+    .header_right.active .header_nav_item {
+        margin: 0;
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 1);
+        padding: 12px 0;
+    }
+    
+    .header_nav_item p {
+        justify-content: center; /* センタリング */
+    }
+}
+
 /* モバイルサイズ向けにさらに調整 */
 @media screen and (max-width: 560px) {
     .hamburger {
@@ -517,7 +547,6 @@ h1 {
     }
 
     .header_right {
-        display: none;
         position: absolute;
         top: 100%;
         left: 0;
@@ -525,15 +554,13 @@ h1 {
         padding: 0;
         flex-direction: column;
         background-color: var(--color_header);
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height var(--transition_default);
+        display: none; /* 初期状態は非表示 */
+        box-sizing: border-box; /* サイズ計算を安定させる */
     }
 
     /* ハンバーガーメニューが開いたときのヘッダー右部分 - 修正箇所 */
     .header_right.active {
         display: flex;
-        max-height: none; /* 高さ制限を解除 */
         position: fixed; /* 画面に固定 */
         top: var(--header_height); /* ヘッダーの高さ分下げる - 修正 */
         left: 0;
@@ -571,7 +598,7 @@ h1 {
         /* 固定位置はそのままに */
         position: fixed;
         /* 元の位置を維持するため、ヘッダーと同じ高さの位置に固定 */
-        top: 30px; /* ヘッダーの高さに合わせて調整 */
+        top: 20px; /* ヘッダーの高さに合わせて調整 */
         right: var(--spacing_base);
         /* 中央配置のtransformを削除して位置を安定させる */
         transform: none;
