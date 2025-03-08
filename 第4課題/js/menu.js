@@ -3,16 +3,54 @@ $(document).ready(function() {
     $('.hamburger').on('click', function() {
         $(this).toggleClass('active');
         
-        // slideToggle()を使用してアニメーションをスムーズにする
-        $('.header_right').slideToggle(300, function() {
-            // アニメーション完了後にactiveクラスの付け外しを行う
-            $(this).toggleClass('active');
+        // 表示前にactiveクラスを適用してサイズを固定
+        if (!$('.header_right').hasClass('active')) {
+            $('.header_right').addClass('active').css({
+                'height': 'auto',
+                'opacity': 0,
+                'display': 'flex',
+                'visibility': 'hidden'
+            });
             
-            // 表示状態を維持するためにdisplayプロパティを調整
-            if ($(this).hasClass('active')) {
-                $(this).css('display', 'flex');
-            }
-        });
+            // 実際の高さを取得
+            const targetHeight = $('.header_right').outerHeight();
+            
+            // 一度高さを0にしてから表示
+            $('.header_right').css({
+                'height': 0,
+                'opacity': 0,
+                'overflow': 'hidden',
+                'visibility': 'visible'
+            }).animate({
+                'height': targetHeight,
+                'opacity': 1
+            }, 300, function() {
+                // アニメーション完了後、制限を解除
+                $(this).css({
+                    'height': '',
+                    'overflow': '',
+                    'opacity': ''
+                });
+            });
+        } else {
+            // メニューを閉じる
+            const currentHeight = $('.header_right').outerHeight();
+            
+            $('.header_right').css({
+                'height': currentHeight,
+                'overflow': 'hidden'
+            }).animate({
+                'height': 0,
+                'opacity': 0
+            }, 300, function() {
+                $(this).removeClass('active').css({
+                    'display': 'none',
+                    'height': '',
+                    'overflow': '',
+                    'opacity': ''
+                });
+            });
+        }
     });
 
     // header_nav_itemのクリックイベント - アコーディオンメニューの範囲を拡大
@@ -44,8 +82,23 @@ $(document).ready(function() {
         // モバイル表示でメニューが開いている場合は閉じる
         if ($('.header_right').hasClass('active')) {
             $('.hamburger').removeClass('active');
-            $('.header_right').slideUp(300, function() {
-                $(this).removeClass('active');
+            
+            // メニューを閉じる
+            const currentHeight = $('.header_right').outerHeight();
+            
+            $('.header_right').css({
+                'height': currentHeight,
+                'overflow': 'hidden'
+            }).animate({
+                'height': 0,
+                'opacity': 0
+            }, 300, function() {
+                $(this).removeClass('active').css({
+                    'display': 'none',
+                    'height': '',
+                    'overflow': '',
+                    'opacity': ''
+                });
             });
         }
     });

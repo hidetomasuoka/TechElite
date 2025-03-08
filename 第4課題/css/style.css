@@ -547,7 +547,6 @@ h1 {
     }
 
     .header_right {
-        display: none;
         position: absolute;
         top: 100%;
         left: 0;
@@ -555,7 +554,8 @@ h1 {
         padding: 0;
         flex-direction: column;
         background-color: var(--color_header);
-        transition: max-height var(--transition_default);
+        display: none; /* 初期状態は非表示 */
+        box-sizing: border-box; /* サイズ計算を安定させる */
     }
 
     /* ハンバーガーメニューが開いたときのヘッダー右部分 - 修正箇所 */
