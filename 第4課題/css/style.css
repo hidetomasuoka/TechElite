@@ -19,7 +19,7 @@
     --spacing_xl: 40px;
 
     /* Sizes */
-    --header_height: 60px;
+    --header_height: 40px;
     --service_box_width: 220px;
     --service_box_height: 80px;
     --hamburger_width: 30px;
@@ -47,8 +47,6 @@
 
 body {
     font-family: Arial, sans-serif;
-    line-height: 1.6;
-    padding-top: var(--header_height); /* ヘッダーの高さ分のパディングを追加 */
 }
 
 /* プレースホルダーのスタイル (共通) */
@@ -142,7 +140,8 @@ header {
     width: 100%;
     background-color: var(--color_header);
     z-index: 1000;
-    height: var(--header_height);
+    padding-top: 12px;
+    padding-bottom: 12px;    
 }
 
 .header_content {
@@ -154,11 +153,13 @@ header {
     justify-content: space-between;
 }
 
-.header_content > a {
+.header_content a {
     color: var(--color_white);
     text-decoration: none;
-    font-size: 0.9rem;
+    font-size: clamp(0.75rem, 1.5vw, 1rem);
     margin-right: auto;
+    padding:0 0;
+    padding: 0; /* パディングを0に変更 */
 }
 
 .header_content ul {
@@ -166,7 +167,7 @@ header {
     width: 400px;
     justify-content: space-between;
     list-style-type: none;
-    font-size: 0.9rem;
+    font-size: clamp(0.75rem, 1.5vw, 1rem);
     transition: height var(--transition_default);
     overflow: hidden;
 }
@@ -179,8 +180,9 @@ header {
     color: var(--color_white);
     text-decoration: none;
     transition: opacity var(--transition_default);
-    font-size: 0.9rem;
+    font-size: clamp(0.75rem, 1.5vw, 1rem);
     padding: var(--spacing_base);
+    padding: 0; /* パディングを0に変更 */
     display: block;
 }
 
