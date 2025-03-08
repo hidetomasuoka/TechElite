@@ -47,70 +47,108 @@
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
+    padding-top: var(--header_height); /* ヘッダーの高さ分のパディングを追加 */
 }
 
 /*
- * ヘッダーコンポーネント
+ * ヘッダーのスタイル
  */
-.header {
+header {
     position: fixed;
     top: 0;
     left: 0;
-    right: 0;
-    z-index: 1000;
-    display: flex;
-    justify-content: center;
     width: 100%;
     background-color: var(--color_header);
+    z-index: 1000;
+    height: var(--header_height);
+}
+
+.header_content {
+    display: flex;
+    max-width: 800px;
+    margin: 0 auto;
+    align-items: center;
+    height: 100%;
+    justify-content: space-between;
+}
+
+.header_content > a {
+    color: var(--color_white);
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin-right: auto;
+    
+}
+
+.header_content ul {
+    display: flex;
+    width: 400px;
+    justify-content: space-between;
+    list-style-type: none;
+    font-size: 0.9rem;
+
+}
+
+.header_content li {
+    margin-left: var(--spacing_lg);
+}
+
+.header_content li a {
+    color: var(--color_white);
+    text-decoration: none;
+    transition: opacity var(--transition_default);
+    font-size: 0.9rem;
+    padding: var(--spacing_base);
+    display: block;
+}
+
+.header_content li a:hover {
+    opacity: var(--opacity_hover);
+}
+
+/* ハンバーガーメニュー */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: var(--hamburger_width);
+    height: var(--hamburger_height);
+    position: relative;
     padding: 0;
 }
 
-.header_left {
-    width: 50%;
-    padding-left: var(--spacing_base);
-    text-align: center;
-    /* ヘッダー左側が常に最前面に表示されるように修正 */
-    position: relative;
-    z-index: 1002; /* ハンバーガーメニューより上に表示 */
-}
-
-.header_right {
-    width: 50%;
-    display: flex;
-    padding-right: var(--spacing_base);
-    text-align: left;
-}
-
-/* ヘッダーナビゲーションアイテムをクリック可能に */
-.header_nav_item {
-    margin-left: var(--spacing_base);
-    cursor: pointer; /* カーソルをポインターに変更して、クリック可能であることを示す */
-    transition: opacity var(--transition_default);
-}
-
-.header_nav_item:hover {
-    opacity: var(--opacity_hover);
-}
-
-/* 幅いっぱいに広げて、クリック領域を拡大 */
-.header_nav_item p {
+.hamburger span {
+    display: block;
+    position: absolute;
     width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
+    height: 2px;
+    background-color: var(--color_white);
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-.header_link {
-    display: inline-block; /* blockからinline-blockに変更 */
-    color: var(--color_white);
-    text-decoration: none;
-    padding: var(--spacing_base);
-    font-size: clamp(0.75rem, 1.5vw, 1rem);
-    transition: opacity var(--transition_default);
+.hamburger span:nth-child(1) {
+    top: 0;
 }
 
-.header_link:hover {
-    opacity: var(--opacity_hover);
+.hamburger span:nth-child(2) {
+    top: 9px;
+}
+
+.hamburger span:nth-child(3) {
+    top: 18px;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
 }
 
 /*
@@ -123,6 +161,7 @@ body {
     background-image: url('../img/kv.png');
     background-size: cover;
     background-position: center;
+    margin-top: calc(-1 * var(--header_height)); /* ヘッダーの高さ分を調整 */
 }
 
 .key_visual_text {
@@ -368,55 +407,7 @@ h1 {
     background-color: #143a8c;
 }
 
-/*
- * ハンバーガーメニューコンポーネント
- */
-.hamburger {
-    display: none;
-    position: absolute;
-    width: var(--hamburger_width);
-    height: var(--hamburger_height);
-    padding: 0;
-    background: none;
-    border: none;
-    cursor: pointer;
-    z-index: 1001; /* 常に最前面に表示 */
-    /* ヘッダー内で上下中央配置 */
-    top: 50%;
-    right: var(--spacing_lg);
-    transform: translateY(-50%);
-}
-
-.hamburger span {
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    background-color: var(--color_white);
-    transition: transform var(--transition_default), opacity var(--transition_default);
-}
-
-.hamburger span:nth-child(1) { top: 0; }
-.hamburger span:nth-child(2) { top: 9px; }
-.hamburger span:nth-child(3) { top: 18px; }
-
-.hamburger.active span:nth-child(1) {
-    top: 9px;
-    transform: rotate(45deg);
-}
-
-.hamburger.active span:nth-child(2) {
-    opacity: 0;
-}
-
-.hamburger.active span:nth-child(3) {
-    top: 9px;
-    transform: rotate(-45deg);
-}
-
-/*
- * レスポンシブスタイル - 段階的にgapを調整
- */
+/* レスポンシブスタイル */
 @media screen and (max-width: 1300px) {
     .service_container {
         gap: 15px;
@@ -449,22 +440,6 @@ h1 {
 
 /* タブレット対応 */
 @media screen and (max-width: 750px) {
-    .header_left {
-        width: 40%;
-        padding-left: var(--spacing_md);
-        text-align: left;
-    }
-
-    .header_right {
-        width: 60%;
-        padding-right: var(--spacing_md);
-        justify-content: flex-end;
-    }
-
-    .header_nav_item {
-        margin-left: var(--spacing_base);
-    }
-
     .service_container {
         padding: 0 var(--spacing_md);
     }
@@ -492,20 +467,62 @@ h1 {
     }
 }
 
-/* サービスアイテムを縦積みに */
-@media screen and (max-width: 560px) {
+/* モバイル対応 */
+@media screen and (max-width: 768px) {
+    .hamburger {
+        display: block;
+        z-index: 1001;
+    }
+    
+    .header_content {
+        width: 100%;
+        padding: 0 var(--spacing_lg);
+        position: relative;
+    }
+    
+    .header_content > a {
+        margin-right: auto;
+    }
+
+    .header_content ul {
+        position: fixed;
+        top: var(--header_height);
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        background-color: var(--color_header);
+        display: none;
+    }
+    
+    .header_content ul.active {
+        display: flex;
+    }
+    
+    .header_content li {
+        margin: 0;
+        width: 100%;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .header_content li a {
+        padding: 15px;
+        text-align: center;
+    }
+}
+    
+    /* サービスアイテムを縦積みに */
     .service_container {
         flex-direction: column;
         align-items: center;
         gap: var(--spacing_base);
         padding: var(--spacing_lg);
-        width: 40%; /* 縦積みの場合は幅を100%に */
-        max-width: 90%; /* 画面幅に応じて調整 */
+        width: 100%;
+        max-width: 90%;
     }
 
     .service_box {
-        width: 40%; /* 親コンテナの幅いっぱいに */
-        max-width: 250px; /* 最大幅を設定 */
+        width: 100%;
+        max-width: 250px;
         height: var(--service_box_height);
         padding: var(--spacing_base) var(--spacing_lg);
     }
@@ -513,148 +530,9 @@ h1 {
     .company-section h1 {
         margin-top: var(--spacing_xl);
     }
-}
-
-/* モバイル表示時のスタイル */
-@media screen and (max-width: 560px) {
-    .header_right.active .header_nav_item {
-        margin: 0;
-        width: 100%;
-        text-align: center;
-        border-bottom: 1px solid rgba(255, 255, 255, 1);
-        padding: 12px 0;
-    }
     
-    .header_nav_item p {
-        justify-content: center; /* センタリング */
-    }
-}
-
-/* モバイルサイズ向けにさらに調整 */
-@media screen and (max-width: 560px) {
-    .hamburger {
-        display: block;
-        right: var(--spacing_base);
-    }
-
-    .header {
-        flex-wrap: wrap;
-        padding: var(--spacing_sm) var(--spacing_base);
-    }
-
-    .header_left {
-        width: 80%;
-    }
-
-    .header_right {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        padding: 0;
-        flex-direction: column;
-        background-color: var(--color_header);
-        display: none; /* 初期状態は非表示 */
-        box-sizing: border-box; /* サイズ計算を安定させる */
-    }
-
-    /* ハンバーガーメニューが開いたときのヘッダー右部分 - 修正箇所 */
-    .header_right.active {
-        display: flex;
-        position: fixed; /* 画面に固定 */
-        top: var(--header_height); /* ヘッダーの高さ分下げる - 修正 */
-        left: 0;
-        width: 100%;
-        height: auto; /* 高さを自動調整に変更 */
-        background-color: var(--color_header);
-        flex-direction: column;
-        padding: 0; /* パディングを調整 - 修正 */
-        z-index: 1000;
-        /* ヘッダーの下に表示されるように調整 */
-    }
-
-    /* ナビゲーションアイテムのスタイル */
-    .header_right.active .header_nav_item {
-        margin: 0;
-        width: 100%;
-        text-align: center;
-        border-bottom: 1px solid rgba(255, 255, 255, 1);
-        padding: 12px 0; /* 縦のパディングを小さく */
-    }
-
-    /* 最初のナビゲーションアイテムに上部の境界線を追加 */
-    .header_right.active .header_nav_item:first-child {
-        border-top: 1px solid rgba(255, 255, 255, 1);
-    }
-
-    /* リンクのテキストスタイル */
-    .header_right.active .header_link {
-        font-size: 0.8rem; /* フォントサイズを小さく */
-        padding: 8px 0;
-    }
-
-    /* 閉じるボタン（X）のスタイル */
-    .hamburger.active {
-        /* 固定位置はそのままに */
-        position: fixed;
-        /* 元の位置を維持するため、ヘッダーと同じ高さの位置に固定 */
-        top: 20px; /* ヘッダーの高さに合わせて調整 */
-        right: var(--spacing_base);
-        /* 中央配置のtransformを削除して位置を安定させる */
-        transform: none;
-    }
-
-    .header_nav_item {
-        margin: 0;
-        width: 100%;
-        text-align: center;
-    }
-
-    .header_nav_item p {
-        padding: var(--spacing_sm) 0;
-    }
-
-    .key_visual_text {
-        padding: 0 var(--spacing_base);
-    }
-
-    .service_box {
-        width: 100%; /* 親コンテナに対する幅 */
-        max-width: 100%; /* 最大幅.header_right.active .header_linkを設定なし */
-        min-width: 200px; /* 最小幅を設定 */
-    }
     /* サービスボックスのアクティブ状態を定義 */
     .service_box.active {
         font-weight: bold;
     }
-    .submenu {
-        display: none;
-        padding-left: 15px;
-        overflow: hidden;
-        max-height: 0;
-        transition: max-height 0.3s ease-out;
-      }
-      
-      .submenu.open {
-        display: block;
-        max-height: 500px; /* サブメニューの最大高さ */
-        transition: max-height 0.5s ease-in;
-      }
-      
-      .menu-title {
-        cursor: pointer;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: var(--spacing_base);
-        color: var(--color_white);
-      }
-      
-      .toggle-icon {
-        transition: transform 0.3s ease;
-      }
-      
-      .toggle-icon.open {
-        transform: rotate(45deg);
-      }
 }
