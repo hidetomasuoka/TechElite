@@ -93,6 +93,7 @@ h1 {
     height: var(--hamburger_height);
     position: relative;
     padding: 0;
+    z-index: 1001;
 }
 
 .hamburger span {
@@ -438,12 +439,13 @@ header {
         width: 100%;
         flex-direction: column;
         background-color: var(--color_header);
-        display: none;
-        max-height: none; /* slideToggleのために高さ制限を解除 */
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
     }
     
     .header_content ul.active {
-        display: flex;
+        max-height: 300px; /* メニューの最大高さを適切に設定 */
     }
     
     .header_content li {
