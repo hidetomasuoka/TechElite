@@ -3,6 +3,8 @@
 <!-- Swiper JS -->
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="js/slider.js"></script>
+<script src="js/main.js"></script>
 
 <main>
     <section id="top" class="slider-section">
@@ -94,138 +96,41 @@
     <section id="reservation" class="section">
         <div class="container">
             <h2>席予約</h2>
-            <form class="reservation-form" action="confirm.php" method="post" id="reservationForm">
-                <div class="form-group">
-                    <label for="reserve-name">お名前</label>
-                    <input type="text" id="reserve-name" name="reserve-name" required>
-                </div>
-                <div class="form-group">
-                    <label for="reserve-email">メールアドレス</label>
-                    <input type="email" id="reserve-email" name="reserve-email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
-                    <span class="error-message" id="email-error"></span>
-                </div>
-                <div class="form-group">
-                    <label for="reserve-phone">電話番号（任意）</label>
-                    <input type="tel" id="reserve-phone" name="reserve-phone" pattern="[0-9]{10,11}">
-                    <span class="error-message" id="phone-error">電話番号は10桁または11桁の数字で入力してください</span>
-                </div>
-                <div class="form-group">
-                    <label for="seat-type">席の場所</label>
-                    <select id="seat-type" name="seat-type" required>
-                        <option value="">席を選択してください</option>
-                        <option value="SS席">SS席</option>
-                        <option value="S席">S席</option>
-                        <option value="A席">A席</option>
-                        <option value="B席">B席</option>
-                        <option value="C席">C席</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="reserve-date">予約日</label>
-                    <input type="date" id="reserve-date" name="reserve-date" required>
-                </div>
-                <button type="submit" class="submit-btn" id="reservationSubmitBtn" disabled>予約する</button>
-            </form>
+            <div class="simple-form">
+                <form action="confirm.php" method="post" id="reservationForm">
+                    <div class="form-group">
+                        <label for="reserve-name">お名前<span class="required">*必須</span></label>
+                        <input type="text" id="reserve-name" name="name" placeholder="例) 田中 太郎" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="seat-type">席の場所<span class="required">*必須</span></label>
+                        <select id="seat-type" name="seat-type" required>
+                            <option value="">---</option>
+                            <option value="SS席">SS席</option>
+                            <option value="S席">S席</option>
+                            <option value="A席">A席</option>
+                            <option value="B席">B席</option>
+                            <option value="C席">C席</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="reserve-email">メールアドレス<span class="required">*必須</span></label>
+                        <input type="email" id="reserve-email" name="email" placeholder="例) abcd123@example.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="reserve-phone">電話番号<span class="optional">任意</span></label>
+                        <input type="tel" id="reserve-phone" name="phone" placeholder="例) 09012345678">
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">送信</button>
+                </form>
+            </div>
         </div>
     </section>
 
 </main>
 
 <?php include 'footer.php'; ?>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Initialize Swiper
-        var swiper = new Swiper('.swiper-container', {
-            // Optional parameters
-            loop: true,
-            autoplay: {
-                delay: 5000,
-            },
-            
-            // If we need pagination
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            
-            // Navigation arrows
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-        });
-
-        // 席予約フォームのバリデーション
-        const reservationForm = document.getElementById('reservationForm');
-        const emailInput = document.getElementById('reserve-email');
-        const phoneInput = document.getElementById('reserve-phone');
-        const submitButton = document.getElementById('reservationSubmitBtn');
-        const emailError = document.getElementById('email-error');
-        const phoneError = document.getElementById('phone-error');
-        
-        // エラーメッセージを初期状態では非表示に
-        emailError.style.display = 'none';
-        phoneError.style.display = 'none';
-        
-        // フォームの入力状態をチェックする関数
-        function validateForm() {
-            let isValid = reservationForm.checkValidity();
-            
-            // 電話番号の追加バリデーション（入力されている場合のみ）
-            if (phoneInput.value !== '' && !phoneInput.validity.valid) {
-                phoneError.style.display = 'block';
-                isValid = false;
-            } else {
-                phoneError.style.display = 'none';
-            }
-            
-            // メールアドレスの追加バリデーション
-            if (emailInput.value !== '' && !emailInput.validity.valid) {
-                emailError.textContent = '有効なメールアドレスを入力してください';
-                emailError.style.display = 'block';
-                isValid = false;
-            } else {
-                emailError.style.display = 'none';
-            }
-            
-            // 送信ボタンの活性/非活性を切り替え
-            if (isValid) {
-                submitButton.disabled = false;
-                submitButton.style.opacity = '1';
-            } else {
-                submitButton.disabled = true;
-                submitButton.style.opacity = '0.5';
-            }
-        }
-        
-        // 全てのフォーム要素に対してイベントリスナーを設定
-        const formInputs = reservationForm.querySelectorAll('input, select, textarea');
-        formInputs.forEach(input => {
-            input.addEventListener('input', validateForm);
-            input.addEventListener('change', validateForm);
-        });
-        
-        // フォーム初期表示時にもバリデーション実行
-        validateForm();
-    });
-
-    // タブ切り替え用のJavaScript
-    document.addEventListener('DOMContentLoaded', function() {
-        const tabButtons = document.querySelectorAll('.tab-button');
-        const tabPanes = document.querySelectorAll('.tab-pane');
-
-        tabButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                // Remove active class from all buttons and panes
-                tabButtons.forEach(btn => btn.classList.remove('active'));
-                tabPanes.forEach(pane => pane.classList.remove('active'));
-
-                // Add active class to clicked button and corresponding pane
-                button.classList.add('active');
-                const tabId = button.getAttribute('data-tab');
-                document.getElementById(tabId).classList.add('active');
-            });
-        });
-    });
-</script>

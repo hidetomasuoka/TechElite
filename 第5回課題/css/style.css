@@ -637,3 +637,103 @@ footer p {
         gap: 10px;
     }
 }
+
+/* シンプルフォームスタイル */
+.simple-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.simple-form .form-group {
+    margin-bottom: 20px;
+}
+
+.simple-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: normal;
+}
+
+.simple-form input,
+.simple-form select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    font-size: 16px;
+}
+
+.simple-form .required {
+    color: #FF0000;
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+.simple-form .optional {
+    color: #999;
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+.simple-form .submit-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: #BEA574;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: opacity 0.3s ease;
+}
+
+.simple-form select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px;
+}
+
+/* モバイル対応 */
+@media (max-width: 768px) {
+    .simple-form {
+        padding: 0 15px;
+    }
+}
+
+/* 確認画面のスタイル */
+.confirm-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.confirm-item {
+    margin-bottom: 20px;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.confirm-item h3 {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #666;
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.back-btn {
+    padding: 15px 30px;
+    background-color: #666;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+}
