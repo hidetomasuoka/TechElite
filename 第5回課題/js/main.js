@@ -155,3 +155,26 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+// タブ切り替え機能
+document.addEventListener('DOMContentLoaded', function() {
+    const tabButtons = document.querySelectorAll('.tab-button');
+    const tabPanes = document.querySelectorAll('.tab-pane');
+
+    tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // アクティブなタブボタンのクラスを削除
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            // クリックされたボタンにアクティブクラスを追加
+            button.classList.add('active');
+
+            // 全てのタブペインを非表示
+            tabPanes.forEach(pane => pane.classList.remove('active'));
+            // クリックされたボタンに対応するタブペインを表示
+            const targetTab = document.getElementById(button.dataset.tab);
+            if (targetTab) {
+                targetTab.classList.add('active');
+            }
+        });
+    });
+});

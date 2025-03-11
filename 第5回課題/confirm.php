@@ -24,29 +24,31 @@ include 'header.php';
     <section class="section">
         <div class="container">
             <h2>予約内容の確認</h2>
+            
             <div class="confirm-content">
                 <div class="confirm-item">
                     <h3>お名前</h3>
                     <p><?php echo htmlspecialchars($_SESSION["form_data"]["name"]); ?></p>
                 </div>
+                
                 <div class="confirm-item">
                     <h3>席の場所</h3>
                     <p><?php echo htmlspecialchars($_SESSION["form_data"]["seat_type"]); ?></p>
                 </div>
+                
                 <div class="confirm-item">
                     <h3>メールアドレス</h3>
                     <p><?php echo htmlspecialchars($_SESSION["form_data"]["email"]); ?></p>
                 </div>
+                
                 <div class="confirm-item">
                     <h3>電話番号</h3>
                     <p><?php echo htmlspecialchars($_SESSION["form_data"]["phone"]); ?></p>
                 </div>
                 
                 <div class="button-group">
-                    <form action="index.php#reservation" method="get">
-                        <button type="submit" class="back-btn">戻る</button>
-                    </form>
-                    <form action="thanks.php" method="post">
+                    <button type="button" onclick="location.href='index.php#reservation'" class="back-btn">戻る</button>
+                    <form action="thanks.php" method="post" style="margin: 0;">
                         <button type="submit" class="submit-btn">予約を確定する</button>
                     </form>
                 </div>
@@ -55,8 +57,4 @@ include 'header.php';
     </section>
 </main>
 
-<footer>
-    <div class="container">
-        <p>&copy; 2023 TechElite All Rights Reserved.</p>
-    </div>
-</footer>
+<?php include 'footer.php'; ?>

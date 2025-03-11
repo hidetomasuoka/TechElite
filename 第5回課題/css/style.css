@@ -7,6 +7,7 @@
     --spacing_base: 8px;
     --spacing_lg: 16px;
     --transition_default: 0.3s;
+    --header-height: 64px; /* ヘッダーの高さを変数として定義 */
 }
 
 /* 全体スタイル */
@@ -133,18 +134,19 @@ header ul li a:hover {
 }
 
 .section {
-    padding: 60px 0;
+    padding: 30px 0;
 }
 
 h2 {
-    font-size: 28px;
-    margin-bottom: 30px;
+    font-size: 20px;
+    margin-bottom: 40px;
     text-align: center;
 }
 
 /* スライダースタイル */
 .slider-section {
     padding-top: 0;
+    margin-top: var(--header-height); /* ヘッダーの高さ分だけマージンを追加 */
 }
 
 /* Swiperスタイル */
@@ -163,9 +165,11 @@ h2 {
 }
 
 .swiper-slide img {
-    width: 100%;
+    display: block;
+    max-width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain; /* coverからcontainに変更して、画像の縦横比を維持 */
+    margin: 0 auto; /* 左右のマージンを自動で中央寄せ */
 }
 
 .swiper-button-prev,
@@ -175,11 +179,20 @@ h2 {
     transform: translateY(-50%);
     width: 40px;
     height: 40px;
-    z-index: 10;
+    z-index: 100; /* z-indexを高く設定して確実に画像の上に表示 */
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: rgba(255, 255, 255, 0.6); /* 半透明の白背景を追加 */
+    border-radius: 50%; /* 丸い形状に */
+    padding: 10px;
+    transition: all 0.3s ease;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+    background-color: rgba(255, 255, 255, 0.8); /* ホバー時は少し濃く */
 }
 
 .swiper-button-prev {
@@ -341,6 +354,10 @@ input, textarea {
 }
 
 /* 確認画面スタイル */
+main {
+    padding-top: 0; /* 20pxから0に変更 */
+}
+
 .confirm-content {
     max-width: 600px;
     margin: 0 auto;
@@ -351,15 +368,22 @@ input, textarea {
 }
 
 .confirm-item {
+    display: flex;
     margin-bottom: 20px;
     padding-bottom: 15px;
     border-bottom: 1px solid #eee;
 }
 
 .confirm-item h3 {
-    font-size: 18px;
-    margin-bottom: 10px;
-    color: #333;
+    width: 150px;
+    font-size: 16px;
+    margin-bottom: 0;
+    font-weight: normal;
+}
+
+.confirm-item p {
+    flex-grow: 1;
+    margin: 0;
 }
 
 .button-group {
@@ -369,12 +393,23 @@ input, textarea {
 }
 
 .back-btn {
-    background: #888;
+    background: #ccc;
+    color: #333;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 2px;
+    font-size: 16px;
+    cursor: pointer;
+    width: auto;
+}
+
+.submit-btn {
+    background: var(--main-bg-color);
     color: white;
     border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    font-size: var(--main-font-size);
+    padding: 10px 30px;
+    border-radius: 2px;
+    font-size: 16px;
     cursor: pointer;
 }
 
@@ -514,6 +549,9 @@ footer p {
 /* タブUI用のスタイル */
 .schedule-container {
     margin: 30px 0;
+    padding: 20px;
+    background: rgba(190, 165, 116, 0.1);
+    border-radius: 8px;
 }
 
 .tab-container {
@@ -523,29 +561,50 @@ footer p {
 
 .tab-buttons {
     display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 0;
+    border-radius: 8px 8px 0 0;
+    overflow: hidden;
 }
 
 .tab-button {
-    padding: 10px 20px;
+    padding: 15px 30px;
     border: none;
-    background-color: #f0f0f0;
+    background-color: #E0E0E0;
     cursor: pointer;
     transition: all 0.3s ease;
-    border-radius: 5px;
+    flex: 1;
+    text-align: center;
+    color: #333;
+    font-size: 18px;
+    font-weight: bold;
+    position: relative;
+}
+
+.tab-button:hover {
+    background-color: #d0d0d0;
 }
 
 .tab-button.active {
-    background-color: #333;
+    background-color: var(--main-bg-color);
     color: white;
+}
+
+.tab-button.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-style: solid;
+    border-width: 8px 8px 0;
+    border-color: var(--main-bg-color) transparent transparent;
 }
 
 .tab-content {
     background: #fff;
-    border-radius: 5px;
-    padding: 20px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 30px;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 .tab-pane {
@@ -554,45 +613,73 @@ footer p {
 
 .tab-pane.active {
     display: block;
+    animation: fadeIn 0.5s ease;
 }
 
 .tab-pane h3 {
-    margin-bottom: 15px;
-    color: #333;
+    margin-bottom: 20px;
+    color: var(--main-bg-color);
+    font-size: 24px;
+    text-align: center;
 }
 
 .tab-pane ul {
     list-style: none;
     padding: 0;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .tab-pane li {
-    padding: 10px 0;
-    border-bottom: 1px solid #eee;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-bottom: 1px dashed var(--main-bg-color);
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .tab-pane li:last-child {
     border-bottom: none;
 }
 
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* キャッチコピーのスタイル */
 .catchcopy {
     text-align: center;
     margin-bottom: 40px;
+    padding: 20px;
 }
 
 .catchcopy-text {
-    font-size: 16px;
+    font-size: 24px;
     line-height: 1.4;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 15px;
+}
+
+.catchcopy-text strong {
+    color: #333;
 }
 
 .catchcopy-text .highlight {
-    color: #ff0000;
+    color: red  ;
     font-size: 60px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
 }
 
 /* レスポンシブスタイル */
@@ -635,6 +722,34 @@ footer p {
     .seat-options {
         flex-direction: column;
         gap: 10px;
+    }
+
+    .tab-button {
+        padding: 10px 15px;
+        font-size: 16px;
+    }
+    
+    .tab-content {
+        padding: 20px;
+    }
+    
+    .catchcopy-text {
+        font-size: 20px;
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .catchcopy-text .highlight {
+        font-size: 36px;
+    }
+    
+    .tab-pane h3 {
+        font-size: 20px;
+    }
+    
+    .tab-pane li {
+        font-size: 14px;
+        padding: 12px;
     }
 }
 

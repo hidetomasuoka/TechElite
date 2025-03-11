@@ -2,6 +2,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize Swiper
     var swiper = new Swiper('.swiper-container', {
         // Optional parameters
+        slidesPerView: 1.2, //画像を何枚表示するか
+        spaceBetween: 5, //何ピクセル画像の間隔をあけるか
         loop: true,
         autoplay: {
             delay: 5000,
