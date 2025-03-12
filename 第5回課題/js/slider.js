@@ -13,6 +13,11 @@ document.addEventListener('DOMContentLoaded', function() {
         pagination: {
             el: '.swiper-pagination',
             clickable: true,
+            bulletClass: 'swiper-pagination-bullet',
+            bulletActiveClass: 'swiper-pagination-bullet-active',
+            renderBullet: function (index, className) {
+                return '<span class="' + className + '" style="background: white;"></span>';
+            }
         },
         
         // Navigation arrows

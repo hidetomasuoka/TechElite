@@ -218,7 +218,11 @@ h2 {
     width: 16px;
     height: 16px;
     margin: 0 12px;
-    background: var(--main-bg-color); /* 変数を使用して統一 */
+    background: white !important;
+}
+
+.swiper-pagination-bullet-active {
+    background: white !important;
 }
 
 /* サービススタイル */
