@@ -345,7 +345,7 @@ input, textarea {
 
 .submit-btn {
     background: var(--main-bg-color);
-    color: white;
+    comment: white;
     border: none;
     padding: 10px 20px;
     border-radius: 4px;
@@ -409,7 +409,7 @@ main {
 
 .submit-btn {
     background: var(--main-bg-color);
-    color: white;
+    comment: white;
     border: none;
     padding: 10px 30px;
     border-radius: 2px;
@@ -687,7 +687,7 @@ footer p {
 }
 
 /* レスポンシブスタイル */
-@media (max-width: 768px) {
+@media (max-width: 550px) {
     .hamburger {
         display: flex;
     }
@@ -704,45 +704,80 @@ footer p {
         transition: max-height 0.3s ease-out;
         flex-direction: column;
     }
-    
+
     header ul.active {
         max-height: 300px;
+        width: 100%;
+    }
+    
+    .header_content ul {
+        width: 100%; /* ハンバーガーメニュー展開時に100%幅にする */
+    }
+    
+    .header_content ul.active {
+        max-height: max-content; /* コンテンツの高さに合わせる */
+
     }
     
     header ul li {
         margin: 0;
         padding: 15px 20px;
         border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        width: 100%;
+        text-align: center;
+    }
+
+    header ul li a {
+        width: 100%;
+        display: block;
+        padding: 5px 0;
+    }
+    
+    /* ハンバーガーメニュー展開時にヘッダーと同じ幅にする */
+    .header_content nav {
+
+        width: 100%;
+
+    }
+
+    .header_content nav ul {
+        max-width: 800px;
+        margin: 0 auto;
+        width: 100%;
+
+    }
+    
+    /* ハンバーガーメニューが開いた時のメニュー項目のコンテナ */
+    .header_content ul.active {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
     
     .swiper-container {
         height: 300px;
     }
-
     .map-container {
         height: 300px;
     }
-
     .seat-options {
         flex-direction: column;
         gap: 10px;
     }
-
     .tab-button {
         padding: 10px 15px;
         font-size: 16px;
     }
-    
+
     .tab-content {
         padding: 20px;
     }
-    
     .catchcopy-text {
         font-size: 20px;
         flex-direction: column;
         gap: 10px;
     }
-    
+
     .catchcopy-text .highlight {
         font-size: 36px;
     }
@@ -757,66 +792,8 @@ footer p {
     }
 }
 
-/* シンプルフォームスタイル */
-.simple-form {
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.simple-form .form-group {
-    margin-bottom: 20px;
-}
-
-.simple-form label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: normal;
-}
-
-.simple-form input,
-.simple-form select {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 3px;
-    font-size: 16px;
-}
-
-.simple-form .required {
-    color: #FF0000;
-    font-size: 14px;
-    margin-left: 5px;
-}
-
-.simple-form .optional {
-    color: #999;
-    font-size: 14px;
-    margin-left: 5px;
-}
-
-.simple-form .submit-btn {
-    width: 100%;
-    padding: 15px;
-    background-color: #BEA574;
-    color: white;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-    transition: opacity 0.3s ease;
-}
-
-.simple-form select {
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 10px center;
-    background-size: 16px;
-}
-
 /* モバイル対応 */
-@media (max-width: 768px) {
+@media (max-width: 550px) {
     .simple-form {
         padding: 0 15px;
     }
