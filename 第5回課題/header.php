@@ -13,9 +13,31 @@
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
                     
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    const targetHeading = targetSection.querySelector('h2');
+                    
+                    // Get header height from CSS variable or use a fallback value
+                    const headerHeight = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) || 64;
+                    
+                    if (targetHeading) {
+                        // Calculate position above the h2 element, accounting for header height
+                        const offset = 20; // Additional offset in pixels
+                        const targetPosition = targetHeading.getBoundingClientRect().top + window.pageYOffset - headerHeight - offset;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    } else {
+                        // Default behavior if no h2 found, still accounting for header height
+                        const targetPosition = targetSection.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
                 });
             });
             

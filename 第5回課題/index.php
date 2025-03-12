@@ -31,11 +31,11 @@
         </div>
     </section>
 
-    <section id="schedule" class="section">
-        <div class="container">
-            <div class="catchcopy">
-                <p class="catchcopy-text"><strong>今年も始まる</strong><span class="highlight">夏祭り</span></p>
-            </div>
+    <div class="container">
+        <div class="catchcopy">
+            <p class="catchcopy-text"><strong>今年も始まる</strong><span class="highlight">夏祭り</span></p>
+        </div>
+        <section id="schedule" class="section">
             <h2>スケジュール</h2>
             <div class="schedule-container">
                 <div class="tab-container">
