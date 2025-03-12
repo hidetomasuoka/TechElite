@@ -10,18 +10,16 @@ if (!isset($_SESSION["form_data"])) {
 include 'header.php';
 ?>
 
-<body>
-    <main>
-        <section class="section">
-            <div class="container">
-                <h2>お問い合わせありがとうございました</h2>
-            </div>
-        </section>
-    </main>
+<main style="padding-bottom: 50px;">
+    <section class="section">
+        <div class="container">
+            <h2>お問い合わせありがとうございました</h2>
+        </div>
+    </section>
+</main>
 
-    <?php
-    // セッションデータをクリア
-    session_destroy();
-    include 'footer.php';
-    ?>
-</body>
+<?php
+// セッションデータをクリア
+session_destroy();
+include 'footer.php';
+?>

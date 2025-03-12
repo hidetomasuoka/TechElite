@@ -1,7 +1,7 @@
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 80px 20px 0; /* ヘッダーの高さ分のpadding-topを追加 */
 }
 
 .section {
@@ -191,4 +191,12 @@ h2 {
     font-size: 60px;
     font-weight: bold;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.section-title {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #333;
 }
