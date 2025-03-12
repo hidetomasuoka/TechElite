@@ -417,6 +417,33 @@ main {
     cursor: pointer;
 }
 
+/* キャッチコピーのスタイル */
+.catchcopy {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 20px;
+}
+
+.catchcopy-text {
+    font-size: 24px;
+    line-height: 1.4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.catchcopy-text strong {
+    color: #333;
+}
+
+.catchcopy-text .highlight {
+    color: red;
+    font-size: 60px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
 /* サンクスページスタイル */
 .thanks-content {
     max-width: 600px;
@@ -659,137 +686,62 @@ footer p {
     }
 }
 
-/* キャッチコピーのスタイル */
-.catchcopy {
-    text-align: center;
-    margin-bottom: 40px;
-    padding: 20px;
+/* シンプルフォームスタイル */
+.simple-form {
+    max-width: 600px;
+    margin: 0 auto;
 }
 
-.catchcopy-text {
-    font-size: 24px;
-    line-height: 1.4;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
+.simple-form .form-group {
+    margin-bottom: 20px;
 }
 
-.catchcopy-text strong {
-    color: #333;
+.simple-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: normal;
 }
 
-.catchcopy-text .highlight {
-    color: red  ;
-    font-size: 60px;
-    font-weight: bold;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+.simple-form input,
+.simple-form select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    font-size: 16px;
 }
 
-/* レスポンシブスタイル */
-@media (max-width: 550px) {
-    .hamburger {
-        display: flex;
-    }
-    
-    header ul {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: var(--main-bg-color);
-        padding: 0;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease-out;
-        flex-direction: column;
-    }
+.simple-form .required {
+    color: #FF0000;
+    font-size: 14px;
+    margin-left: 5px;
+}
 
-    header ul.active {
-        max-height: 300px;
-        width: 100%;
-    }
-    
-    .header_content ul {
-        width: 100%; /* ハンバーガーメニュー展開時に100%幅にする */
-    }
-    
-    .header_content ul.active {
-        max-height: max-content; /* コンテンツの高さに合わせる */
+.simple-form .optional {
+    color: #999;
+    font-size: 14px;
+    margin-left: 5px;
+}
 
-    }
-    
-    header ul li {
-        margin: 0;
-        padding: 15px 20px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-        width: 100%;
-        text-align: center;
-    }
+.simple-form .submit-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: #BEA574;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: opacity 0.3s ease;
+}
 
-    header ul li a {
-        width: 100%;
-        display: block;
-        padding: 5px 0;
-    }
-    
-    /* ハンバーガーメニュー展開時にヘッダーと同じ幅にする */
-    .header_content nav {
-
-        width: 100%;
-
-    }
-
-    .header_content nav ul {
-        max-width: 800px;
-        margin: 0 auto;
-        width: 100%;
-
-    }
-    
-    /* ハンバーガーメニューが開いた時のメニュー項目のコンテナ */
-    .header_content ul.active {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .swiper-container {
-        height: 300px;
-    }
-    .map-container {
-        height: 300px;
-    }
-    .seat-options {
-        flex-direction: column;
-        gap: 10px;
-    }
-    .tab-button {
-        padding: 10px 15px;
-        font-size: 16px;
-    }
-
-    .tab-content {
-        padding: 20px;
-    }
-    .catchcopy-text {
-        font-size: 20px;
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .catchcopy-text .highlight {
-        font-size: 36px;
-    }
-    
-    .tab-pane h3 {
-        font-size: 20px;
-    }
-    
-    .tab-pane li {
-        font-size: 14px;
-        padding: 12px;
-    }
+.simple-form select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px;
 }
 
 /* モバイル対応 */
