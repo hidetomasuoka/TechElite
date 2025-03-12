@@ -47,6 +47,5 @@
             </ul>
         </div>
     </header>
-    <div style="height: 80px;"></div> <!-- Spacer to prevent content from hiding behind fixed header -->
 </body>
 </html>
