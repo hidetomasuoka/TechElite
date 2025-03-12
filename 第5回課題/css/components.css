@@ -1,0 +1,194 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section {
+    padding: 30px 0;
+}
+
+h2 {
+    font-size: 20px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+/* Services Grid */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.service-card {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.service-card h3 {
+    margin-bottom: 15px;
+}
+
+/* Works Grid */
+.works-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.work-item {
+    background: white;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.work-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.work-item h3, 
+.work-item p {
+    padding: 10px 15px;
+}
+
+/* Access Section */
+.access-content {
+    display: flex;
+    flex-direction: column;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.access-info {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.access-info h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.access-info p, 
+.access-info ul {
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0 auto;
+}
+
+.access-info ul {
+    display: inline-block;
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.map-container {
+    width: 100%;
+    height: 450px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Tab UI */
+.schedule-container {
+    margin: 30px 0;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+}
+
+.tab-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.tab-buttons {
+    display: flex;
+    margin-bottom: 0;
+    border-radius: 8px 8px 0 0;
+    overflow: hidden;
+}
+
+.tab-button {
+    padding: 15px 30px;
+    border: none;
+    background-color: #E0E0E0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex: 1;
+    text-align: center;
+    color: #333;
+    font-size: 18px;
+    font-weight: bold;
+    position: relative;
+}
+
+.tab-button:hover {
+    background-color: #d0d0d0;
+}
+
+.tab-button.active {
+    background-color: var(--main-bg-color);
+    color: white;
+}
+
+.tab-content {
+    background: #fff;
+    padding: 30px;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.tab-pane {
+    display: none;
+}
+
+.tab-pane.active {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Catchcopy */
+.catchcopy {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 20px;
+}
+
+.catchcopy-text {
+    font-size: 24px;
+    line-height: 1.4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.catchcopy-text strong {
+    color: #333;
+}
+
+.catchcopy-text .highlight {
+    color: red;
+    font-size: 60px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}

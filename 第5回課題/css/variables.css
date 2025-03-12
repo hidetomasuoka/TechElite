@@ -1,0 +1,10 @@
+:root {
+    --main-bg-color: #BEA574;
+    --main-font-size: 16px;
+    --header-font-size: 16px;
+    --color-white: #ffffff;
+    --spacing-base: 8px;
+    --spacing-lg: 16px;
+    --transition-default: 0.3s;
+    --header-height: 64px;
+}
