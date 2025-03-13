@@ -6,30 +6,7 @@
     <title>TechElite</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap">
     <link rel="stylesheet" href="css/style.css">
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Smooth scroll
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                });
-            });
-            
-            // Hamburger menu toggle
-            const hamburger = document.querySelector('.hamburger');
-            const nav = document.querySelector('header ul');
-            
-            if (hamburger) {
-                hamburger.addEventListener('click', function() {
-                    nav.classList.toggle('active');
-                });
-            }
-        });
-    </script>
+    <script src="js/navigation.js"></script>
 </head>
 <body>
     <header>
@@ -47,6 +24,3 @@
             </ul>
         </div>
     </header>
-    <div style="height: 80px;"></div> <!-- Spacer to prevent content from hiding behind fixed header -->
-</body>
-</html>
