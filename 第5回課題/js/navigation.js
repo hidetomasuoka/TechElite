@@ -14,10 +14,12 @@ document.addEventListener('DOMContentLoaded', function() {
             // ハンバーガーメニューが開いているかチェック
             const nav = document.querySelector('header ul');
             const isMenuOpen = nav.classList.contains('active');
+            const hamburger = document.querySelector('.hamburger');
             
             // メニューが開いていたら閉じる
             if (isMenuOpen) {
                 nav.classList.remove('active');
+                hamburger.classList.remove('active');
             }
             
             // 追加オフセットを計算：モバイル表示かつメニュー開いていた場合はより大きなオフセット
@@ -53,6 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (hamburger) {
         hamburger.addEventListener('click', function() {
             nav.classList.toggle('active');
+            this.classList.toggle('active'); // ハンバーガーアイコンの状態も切り替え
         });
     }
     
@@ -64,6 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
             !hamburger.contains(e.target)
         ) {
             nav.classList.remove('active');
+            hamburger.classList.remove('active'); // ハンバーガーアイコンも元に戻す
         }
     });
 });

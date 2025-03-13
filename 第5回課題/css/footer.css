@@ -1,12 +1,18 @@
 footer {
     background: var(--main-bg-color);
     color: white;
-    padding: 10px 0;
-    text-align: center;
+    padding: 12px 0;
+}
+
+.footer_content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 .footer-logo {
-    margin-bottom: 20px;
+    margin-bottom: 8px;
+    text-align: center;
 }
 
 .footer-logo img {
@@ -17,4 +23,5 @@ footer {
 footer p {
     margin: 0;
     font-size: 14px;
+    text-align: center;
 }

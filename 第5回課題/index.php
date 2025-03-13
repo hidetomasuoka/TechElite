@@ -86,7 +86,7 @@
             <h2>アクセス</h2>
             <div class="access-content">
                 <div class="access-info">
-                    <p>〒771-1154<br>徳島県徳島市応神町東貞方南川淵</p>
+                    <p>〒771-1154 徳島県徳島市応神町東貞方南川淵</p>
                 </div>
                 <div class="access-map">
                     <!-- Google Maps 埋め込み -->
