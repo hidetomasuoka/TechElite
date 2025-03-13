@@ -82,13 +82,13 @@ input, textarea, select {
 
 .simple-form .required {
     color: #FF0000;
-    font-size: 14px;
+    font-size: 10px;
     margin-left: 5px;
 }
 
 .simple-form .optional {
     color: #999;
-    font-size: 14px;
+    font-size: 10px;
     margin-left: 5px;
 }
 
