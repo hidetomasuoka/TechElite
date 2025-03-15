@@ -41,9 +41,6 @@ include 'header.php';
                     <div class="swiper-slide"><img src="img/slide_1.jpg" alt="Slide 1"></div>
                     <div class="swiper-slide"><img src="img/slide_2.jpg" alt="Slide 2"></div>
                     <div class="swiper-slide"><img src="img/slide_3.jpg" alt="Slide 3"></div>
-                    <!-- 既存の画像を利用して追加のスライドを作成 -->
-                    <div class="swiper-slide"><img src="img/slide_1.jpg" alt="Slide 4"></div>
-                    <div class="swiper-slide"><img src="img/slide_2.jpg" alt="Slide 5"></div>
                 </div>
                 
                 <!-- If we need pagination -->
