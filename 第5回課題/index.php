@@ -1,14 +1,34 @@
-<?php include 'header.php'; ?>
+<?php 
+session_start();
+include 'header.php'; 
+?>
 
-<body>
+<!-- フォームの入力値を保持するためのスクリプト -->
+<script>
+    const formData = <?php 
+        echo json_encode([
+            'name' => $_POST['name'] ?? '',
+            'seat-type' => $_POST['seat-type'] ?? '',
+            'email' => $_POST['email'] ?? '',
+            'phone' => $_POST['phone'] ?? ''
+        ]); 
+    ?>;
+</script>
     <!-- Swiper JS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
  
-    <!-- Custom JS -->
+    <!-- Core Module System -->
+    <script src="js/modules.js"></script>
+    
+    <!-- Individual Modules -->
+    <script src="js/formModule.js"></script>
+    <script src="js/tabModule.js"></script>
     <script src="js/slider.js"></script>
+    
+    <!-- Main Application Code -->
     <script src="js/main.js"></script>
-
+    
     <main>
         <section id="top" class="slider-section">
             <!-- Slider main container -->
@@ -79,8 +99,7 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
     <section id="access" class="section">
         <div class="container">
@@ -122,19 +141,20 @@
                     <div class="form-group">
                         <label for="reserve-email">メールアドレス<span class="required">*必須</span></label>
                         <input type="email" id="reserve-email" name="email" placeholder="例) abcd123@example.com" required>
+                        <div id="email-error" class="error-message"></div>
                     </div>
                     
                     <div class="form-group">
                         <label for="reserve-phone">電話番号<span class="optional">任意</span></label>
                         <input type="tel" id="reserve-phone" name="phone" placeholder="例) 09012345678">
+                        <div id="phone-error" class="error-message"></div>
                     </div>
                     
-                    <button type="submit" class="submit-btn">送信</button>
+                    <button type="submit" class="submit-btn" id="reservationSubmitBtn">送信</button>
                 </form>
             </div>
         </div>
     </section>
-
 </main>
 
 <?php include 'footer.php'; ?>
