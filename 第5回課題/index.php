@@ -1,4 +1,19 @@
-<?php include 'header.php'; ?>
+<?php 
+session_start();
+include 'header.php'; 
+?>
+
+<!-- フォームの入力値を保持するためのスクリプト -->
+<script>
+    const formData = <?php 
+        echo json_encode([
+            'name' => $_POST['name'] ?? '',
+            'seat-type' => $_POST['seat-type'] ?? '',
+            'email' => $_POST['email'] ?? '',
+            'phone' => $_POST['phone'] ?? ''
+        ]); 
+    ?>;
+</script>
 
 <body>
     <!-- Swiper JS -->

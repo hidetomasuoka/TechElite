@@ -6,11 +6,22 @@ TechElite.registerModule('form', function() {
         const form = document.querySelector('#reservationForm');
         if (!form) return;
         
-        // ページ読み込み時にフォームをリセットする
+        // ページ読み込み時にフォームの値を復元する
         window.addEventListener('pageshow', function(event) {
             if (form) {
-                form.reset();
-                updateSubmitButton(form); // リセット時にボタンの状態を更新
+                if (typeof formData !== 'undefined') {
+                    // 戻るボタンからの遷移時は値を復元
+                    Object.keys(formData).forEach(key => {
+                        const input = form.querySelector(`[name="${key}"]`);
+                        if (input && formData[key]) {
+                            input.value = formData[key];
+                        }
+                    });
+                } else {
+                    // 通常のページロード時はリセット
+                    form.reset();
+                }
+                updateSubmitButton(form);
             }
         });
         

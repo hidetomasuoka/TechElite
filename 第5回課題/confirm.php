@@ -45,8 +45,14 @@ include 'header.php';
                     </div>
                     
                     <div class="button-group">
-                        <button type="button" onclick="location.href='index.php#reservation'" class="back-btn">戻る</button>
-                        <form action="thanks.php" method="post" style="margin: 0;">
+                        <form action="index.php#reservation" method="post" style="margin: 0; display: inline;">
+                            <input type="hidden" name="name" value="<?php echo htmlspecialchars($_SESSION["form_data"]["name"]); ?>">
+                            <input type="hidden" name="seat-type" value="<?php echo htmlspecialchars($_SESSION["form_data"]["seat_type"]); ?>">
+                            <input type="hidden" name="email" value="<?php echo htmlspecialchars($_SESSION["form_data"]["email"]); ?>">
+                            <input type="hidden" name="phone" value="<?php echo htmlspecialchars($_SESSION["form_data"]["phone"]); ?>">
+                            <button type="submit" class="back-btn">戻る</button>
+                        </form>
+                        <form action="thanks.php" method="post" style="margin: 0; display: inline;">
                             <button type="submit" class="submit-btn">送信</button>
                         </form>
                     </div>
