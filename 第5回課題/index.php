@@ -14,8 +14,6 @@ include 'header.php';
         ]); 
     ?>;
 </script>
-
-<body>
     <!-- Swiper JS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -101,8 +99,7 @@ include 'header.php';
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
     <section id="access" class="section">
         <div class="container">
@@ -158,7 +155,6 @@ include 'header.php';
             </div>
         </div>
     </section>
-
 </main>
 
 <?php include 'footer.php'; ?>

@@ -17,7 +17,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 // ヘッダーを読み込み
 include 'header.php';
 ?>
-<body>
     <main>
         <section class="section">
             <div class="container">

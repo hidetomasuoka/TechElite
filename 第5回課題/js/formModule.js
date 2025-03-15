@@ -29,6 +29,7 @@ TechElite.registerModule('form', function() {
         const fields = form.querySelectorAll('.form-group');
         fields.forEach(field => {
             const input = field.querySelector('input, select');
+        
             if (!input) return;
             
             const errorDiv = document.createElement('div');
