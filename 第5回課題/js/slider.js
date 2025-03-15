@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var swiper = new Swiper('.swiper-container', {
         // Optional parameters
         loop: true,
-        slidesPerView: 1.2, 
+        slidesPerView: 1, 
         spaceBetween: 10, 
         speed: 600, 
         direction: "horizontal", 
