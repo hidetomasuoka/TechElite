@@ -217,6 +217,17 @@ h2 {
     text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
 }
 
+/* Mobile styles */
+@media (max-width: 550px) {
+    .catchcopy-text {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .catchcopy-text .highlight {
+        font-size: 48px; /* モバイル表示時はフォントサイズを少し小さくする */
+    }
+}
+
 .section-title {
     font-size: 24px;
     font-weight: bold;

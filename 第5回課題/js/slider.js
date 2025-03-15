@@ -1,20 +1,26 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', async function() {
+    // Wait for Swiper to be available
+    while (typeof Swiper === 'undefined') {
+        await new Promise(resolve => setTimeout(resolve, 100));
+    }
+    
     // Initialize Swiper
-    var swiper = new Swiper('.swiper-container', {
-        // Optional parameters
+    const swiper = new Swiper('.swiper-container', {
         loop: true,
-        slidesPerView: 1, 
-        spaceBetween: 10, 
-        speed: 600, 
-        direction: "horizontal", 
-        effect: "slide", 
+        slidesPerView: 1.2,
+        loopedSlides: 3,
+        spaceBetween: 10,
+        initialSlide: 1,
+        speed: 600,
+        direction: "horizontal",
+        effect: "slide",
         simulateTouch: true,
         centeredSlides: true,
         autoplay: {
             delay: 5000,
+            disableOnInteraction: false
         },
         
-        // If we need pagination
         pagination: {
             el: '.swiper-pagination',
             type: 'bullets',
@@ -22,11 +28,11 @@ document.addEventListener('DOMContentLoaded', function() {
             bulletClass: 'swiper-pagination-bullet',
             bulletActiveClass: 'swiper-pagination-bullet-active',
             renderBullet: function (index, className) {
+                if (index >= 3) return '';
                 return '<span class="' + className + '" style="background: white;"></span>';
             }
         },
         
-        // Navigation arrows
         navigation: {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
