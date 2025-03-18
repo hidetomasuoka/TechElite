@@ -113,30 +113,33 @@ header {
     }
 
     .header_content ul {
-        display: none;
         position: fixed;
         top: var(--header-height);
         left: 0;
         width: 100%;
-        flex-direction: column;
+        display: block;
         background-color: var(--main-bg-color);
         max-height: 0;
         overflow: hidden;
-        transition: max-height 0.3s ease;
+        transition: all 0.3s ease;
+        opacity: 0;
+        visibility: hidden;
     }
 
     .header_content ul.active {
-        display: flex;
+        opacity: 1;
+        visibility: visible;
         position: absolute;
         top: 100%;
         left: 0;
         width: 100%;
         background: var(--main-bg-color);
+        display: flex;
         flex-direction: column;
         align-items: center;
         padding: 0;
         max-height: 300px;
-        border-top: 1px solid white; /* ヘッダーとハンバーガーメニューの間に白い線を追加 */
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
     }
 
     .header_content li {
@@ -145,7 +148,15 @@ header {
         text-align: center;
         padding: 10px 15px;
         border-bottom: none;
-        border-top: 1px solid white;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+    }
+
+    .header_content ul.active li {
+        opacity: 1;
+        transform: translateY(0);
     }
 
     .header_content li a {
@@ -160,7 +171,6 @@ header {
         border-bottom: none;
     }
 
-    /* 最初のliの上線を削除するための追加スタイル */
     .header_content li:first-child {
         border-top: none;
     }

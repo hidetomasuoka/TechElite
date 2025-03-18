@@ -18,9 +18,17 @@
                 <span></span>
             </button>
             <ul>
-                <li><a href="#schedule">スケジュール</a></li>
-                <li><a href="#access">アクセス</a></li>
-                <li><a href="#reservation">席予約</a></li>
+                <?php 
+                $current_page = basename($_SERVER['PHP_SELF']);
+                if ($current_page == 'index.php'): ?>
+                    <li><a href="#schedule">スケジュール</a></li>
+                    <li><a href="#access">アクセス</a></li>
+                    <li><a href="#reservation">席予約</a></li>
+                <?php else: ?>
+                    <li><a href="index.php#schedule">スケジュール</a></li>
+                    <li><a href="index.php#access">アクセス</a></li>
+                    <li><a href="index.php#reservation">席予約</a></li>
+                <?php endif; ?>
             </ul>
         </div>
     </header>

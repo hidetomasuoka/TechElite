@@ -1,50 +1,54 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Store the current page for reference
+    const currentPage = window.location.pathname.split('/').pop() || 'index.php';
+    
     // Smooth scroll
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    document.querySelectorAll('a[href^="#"], a[href*="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            e.preventDefault();
+            const href = this.getAttribute('href');
+            const isHashLink = href.startsWith('#');
+            const hasHash = href.includes('#');
             
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            const targetHeading = targetSection.querySelector('h2');
-            
-            // Get header height from CSS variable or use a fallback value
-            const headerHeight = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) || 64;
-            
-            // ハンバーガーメニューが開いているかチェック
-            const nav = document.querySelector('header ul');
-            const isMenuOpen = nav.classList.contains('active');
-            const hamburger = document.querySelector('.hamburger');
-            
-            // メニューが開いていたら閉じる
-            if (isMenuOpen) {
-                nav.classList.remove('active');
-                hamburger.classList.remove('active');
-            }
-            
-            // 追加オフセットを計算：モバイル表示かつメニュー開いていた場合はより大きなオフセット
-            let additionalOffset = 20; // 基本のオフセット
-            
-            // 遅延を設けてスクロール位置を調整（メニュークローズのアニメーションが終わるのを待つ）
-            setTimeout(() => {
-                if (targetHeading) {
-                    // Calculate position above the h2 element, accounting for header height
-                    const targetPosition = targetHeading.getBoundingClientRect().top + window.pageYOffset - headerHeight - additionalOffset;
+            // Handle hash links differently based on current page
+            if (hasHash) {
+                const targetPage = href.split('#')[0] || currentPage;
+                const hash = '#' + href.split('#')[1];
+                
+                // If we're already on the target page and it's a hash link
+                if ((targetPage === '' || targetPage === currentPage) && document.querySelector(hash)) {
+                    e.preventDefault();
                     
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                } else {
-                    // Default behavior if no h2 found, still accounting for header height
-                    const targetPosition = targetSection.getBoundingClientRect().top + window.pageYOffset - headerHeight - additionalOffset;
+                    const targetSection = document.querySelector(hash);
+                    if (!targetSection) return;
                     
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
+                    const targetHeading = targetSection.querySelector('h2');
+                    const headerHeight = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) || 64;
+                    
+                    // Close mobile menu if open
+                    const nav = document.querySelector('header ul');
+                    const isMenuOpen = nav.classList.contains('active');
+                    const hamburger = document.querySelector('.hamburger');
+                    
+                    if (isMenuOpen) {
+                        nav.classList.remove('active');
+                        hamburger.classList.remove('active');
+                    }
+                    
+                    let additionalOffset = 20;
+                    
+                    setTimeout(() => {
+                        const targetPosition = (targetHeading || targetSection).getBoundingClientRect().top 
+                            + window.pageYOffset 
+                            - headerHeight 
+                            - additionalOffset;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }, isMenuOpen ? 300 : 0);
                 }
-            }, isMenuOpen ? 300 : 0); // メニューが開いていた場合は遅延を入れる
+            }
         });
     });
     
