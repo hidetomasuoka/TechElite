@@ -134,6 +134,7 @@ input, textarea, select {
 .confirm-item {
     display: flex;
     margin-bottom: 48px;
+    align-items: flex-start; /* 追加：長いコンテンツの場合のアライメントを調整 */
 }
 
 .confirm-item h3 {
@@ -141,11 +142,16 @@ input, textarea, select {
     padding-right: 20px;
     font-weight: bold;
     margin: 0;
+    flex-shrink: 0; /* 追加：ラベルの幅を固定 */
+    white-space: nowrap; /* 追加：ラベルを1行に保つ */
 }
 
 .confirm-item p {
     flex: 1;
     margin: 0;
+    word-break: break-word; /* 変更：メールアドレスの改行をより自然に */
+    min-width: 0; /* 追加：Flexboxでの改行を確実にする */
+    line-height: 1.5; /* 追加：改行時の行間を調整 */
 }
 
 .button-group {
@@ -184,5 +190,20 @@ select {
 @media (max-width: 550px) {
     .simple-form {
         padding: 0 15px;
+    }
+    
+    .confirm-item {
+        flex-direction: column;
+        margin-bottom: 32px;
+    }
+    
+    .confirm-item h3 {
+        width: 100%;
+        margin-bottom: 8px;
+    }
+    
+    .confirm-item p {
+        width: 100%;
+        line-height: 1.5;
     }
 }
