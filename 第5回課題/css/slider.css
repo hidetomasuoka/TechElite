@@ -66,3 +66,70 @@
 .swiper-pagination-bullet-active {
     background: white !important;
 }
+
+/* モバイル用メディアクエリ */
+@media screen and (max-width: 768px) {
+    .slider-section {
+        margin-top: 0; /* スマホでヘッダーとスライダーの間の余白を削除 */
+    }
+    
+    .swiper-container {
+        height: 400px;
+    }
+    
+    .swiper-pagination-bullet {
+        width: 12px;
+        height: 12px;
+        margin: 0 8px;
+    }
+    
+    .swiper-button-prev,
+    .swiper-button-next {
+        width: 36px;
+        height: 36px;
+        padding: 8px;
+    }
+    
+    .swiper-button-prev img,
+    .swiper-button-next img {
+        width: 18px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .swiper-container {
+        height: 300px;
+    }
+    
+    .swiper-pagination-bullet {
+        width: 10px;
+        height: 10px;
+        margin: 0 6px;
+    }
+    
+    .swiper-button-prev,
+    .swiper-button-next {
+        width: 30px;
+        height: 30px;
+        padding: 6px;
+    }
+    
+    .swiper-button-prev img,
+    .swiper-button-next img {
+        width: 16px;
+    }
+    
+    .swiper-button-prev {
+        left: 10px;
+    }
+    
+    .swiper-button-next {
+        right: 10px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .swiper-container {
+        height: 280px;
+    }
+}
