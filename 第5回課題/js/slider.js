@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     }
     
     // Initialize Swiper
-    const swiper = new Swiper('.swiper-container', {
+    const swiper = new Swiper('.swiper', {
         loop: true,
         slidesPerView: 1.2,
         loopAdditionalSlides: 1,

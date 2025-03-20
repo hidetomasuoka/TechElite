@@ -32,7 +32,7 @@ include 'header.php';
     <main>
         <section id="top" class="slider-section">
             <!-- Slider main container -->
-            <div class="swiper-container">
+            <div class="swiper">
                 <!-- Additional required wrapper -->
                 <div class="swiper-wrapper">
                     <!-- Slides -->

@@ -2,7 +2,7 @@
     padding-top: 0;
     margin-top: var(--header-height);
 }
-.swiper-container {
+.swiper {
     width: 100%;
     height: 500px;
     position: relative;
@@ -73,7 +73,7 @@
         margin-top: 0; /* スマホでヘッダーとスライダーの間の余白を削除 */
     }
     
-    .swiper-container {
+    .swiper {
         height: 400px;
     }
     
@@ -97,7 +97,7 @@
 }
 
 @media screen and (max-width: 576px) {
-    .swiper-container {
+    .swiper {
         height: 300px;
     }
     
@@ -129,7 +129,7 @@
 }
 
 @media screen and (max-width: 550px) {
-    .swiper-container {
+    .swiper {
         height: 280px;
     }
 }
