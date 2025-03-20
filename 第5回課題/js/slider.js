@@ -8,19 +8,16 @@ document.addEventListener('DOMContentLoaded', async function() {
     const swiper = new Swiper('.swiper-container', {
         loop: true,
         slidesPerView: 1.2,
+        loopAdditionalSlides: 1,
+        centeredSlides: true,
         loopedSlides: 1,
         spaceBetween: 10,
         initialSlide: 1,
         speed: 600,
         direction: "horizontal",
         effect: "slide",
-        simulateTouch: false,
-        allowTouchMove: false,
-        touchRatio: 0,
-        touchStartPreventDefault: true,
-        cssMode: true,
-        centeredSlides: true,
 
+        
         autoplay: {
             delay: 5000,
             disableOnInteraction: false
