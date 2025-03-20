@@ -72,33 +72,12 @@
     .slider-section {
         margin-top: 0; /* スマホでヘッダーとスライダーの間の余白を削除 */
     }
-    
-    .swiper {
-        height: 400px;
-    }
-    
-    .swiper-pagination-bullet {
-        width: 12px;
-        height: 12px;
-        margin: 0 8px;
-    }
-    
-    .swiper-button-prev,
-    .swiper-button-next {
-        width: 36px;
-        height: 36px;
-        padding: 8px;
-    }
-    
-    .swiper-button-prev img,
-    .swiper-button-next img {
-        width: 18px;
-    }
 }
 
-@media screen and (max-width: 576px) {
+/* スマートフォン用 */
+@media screen and (max-width: 550px) {
     .swiper {
-        height: 300px;
+        height: 280px;
     }
     
     .swiper-pagination-bullet {
@@ -125,11 +104,5 @@
     
     .swiper-button-next {
         right: 10px;
-    }
-}
-
-@media screen and (max-width: 550px) {
-    .swiper {
-        height: 280px;
     }
 }
