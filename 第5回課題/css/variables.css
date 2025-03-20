@@ -7,4 +7,8 @@
     --spacing-lg: 16px;
     --transition-default: 0.3s;
     --header-height: 64px;
+    --hamburger-width: 30px;
+    --hamburger-height: 20px;
+    --color-header: var(--main-bg-color);
+    --opacity-hover: 0.5;
 }
