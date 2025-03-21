@@ -67,12 +67,6 @@
     background: white !important;
 }
 
-/* モバイル用メディアクエリ */
-@media screen and (max-width: 768px) {
-    .slider-section {
-        margin-top: 0; /* スマホでヘッダーとスライダーの間の余白を削除 */
-    }
-}
 
 /* スマートフォン用 */
 @media screen and (max-width: 550px) {
