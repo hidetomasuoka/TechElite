@@ -20,52 +20,70 @@
     <section class="event-summary-section" id="summary">
         <div class="container">
             <div class="section-header centered">
-                <div class="section-title-en accent-color">Event Summary</div>
-                <div class="subtitle-container">
+                <div class="section-title-en">Event Summary</div>
+                <div class="subtitle-container-new">
+                    <span class="title-line"></span>
                     <h2 class="section-title-jp">イベント開催概要</h2>
+                    <span class="title-line"></span>
                 </div>
             </div>
             <div class="summary-content-wrapper">
-                <!-- 開催日程 -->
-                <div class="summary-item">
-                    <div class="summary-label">開催日程</div>
-                    <div class="summary-content">2023年3月4日（土）開場10:00 閉場18:00（受付開始9:30-）</div>
-                </div>
-                <div class="divider"></div>
-                
-                <!-- 会場 -->
-                <div class="summary-item">
-                    <div class="summary-label">会場</div>
-                    <div class="summary-content">東京国際フォーラム ホールE2</div>
-                </div>
-                <div class="divider"></div>
-                
-                <!-- イベント内容 -->
-                <div class="summary-item">
-                    <div class="summary-label">イベント内容</div>
-                    <div class="summary-content">企業ブース出展：60ブース<br>ビジネス系セミナー：12枠</div>
-                </div>
-                <div class="divider"></div>
-                
-                <!-- 対象者 -->
-                <div class="summary-item">
-                    <div class="summary-label">対象者</div>
-                    <div class="summary-content">経営者 / フリーランス / 独立志望の会社員</div>
-                </div>
-                <div class="divider"></div>
-                
-                <!-- アクセス -->
-                <div class="summary-item">
-                    <div class="summary-label">アクセス</div>
-                    <div class="summary-content">
-                        <div class="access-map">
-                            <img src="img/Contents/booth.png" alt="アクセスマップ">
-                        </div>
-                        <p class="text-16 font-bold">【最寄駅】</p>
-                        <p class="text-16">JR<br>有楽町駅より徒歩1分<br>東京駅より徒歩5分</p>
-                        <p class="text-16">地下鉄<br>有楽町線 ： 有楽町駅(B1F地下コンコースにて連絡）<br>千代田線 ： 二重橋前駅より徒歩5分/日比谷駅より徒歩7分<br>丸ノ内線 ： 銀座駅より徒歩5分<br>銀座線 ： 銀座駅より徒歩7分/京橋駅より徒歩7分<br>三田線 ： 日比谷駅より徒歩5分</p>
-                    </div>
-                </div>
+                <table class="summary-table">
+                    <tbody>
+                        <!-- 開催日程 -->
+                        <tr>
+                            <td class="summary-label-cell"><span class="summary-label">開催日程</span></td>
+                            <td class="summary-content-cell">2023年3月4日（土）開場10:00 閉場18:00（受付開始9:30-）</td>
+                        </tr>
+                        
+                        <!-- 会場 -->
+                        <tr>
+                            <td class="summary-label-cell"><span class="summary-label">会場</span></td>
+                            <td class="summary-content-cell">東京国際フォーラム ホールE2</td>
+                        </tr>
+                        
+                        <!-- イベント内容 -->
+                        <tr>
+                            <td class="summary-label-cell"><span class="summary-label">イベント内容</span></td>
+                            <td class="summary-content-cell">企業ブース出展：60ブース<br>ビジネス系セミナー：12枠</td>
+                        </tr>
+                        
+                        <!-- 対象者 -->
+                        <tr>
+                            <td class="summary-label-cell"><span class="summary-label">対象者</span></td>
+                            <td class="summary-content-cell">経営者 / フリーランス / 独立志望の会社員</td>
+                        </tr>
+                        
+                        <!-- アクセス -->
+                        <tr>
+                            <td class="summary-label-cell"><span class="summary-label">アクセス</span></td>
+                            <td class="summary-content-cell">
+                                <div class="access-container">
+                                    <div class="station-info">
+                                        <p class="text-22 font-bold">【最寄駅】</p>
+                                        <ul class="access-list">
+                                            <li class="access-point">
+                                                <span class="access-marker"></span>
+                                                有楽町駅より徒歩1分<br>東京駅より徒歩5分
+                                            </li>
+                                            <li class="access-point">
+                                                <span class="access-marker"></span>
+                                                有楽町線 ： 有楽町駅(B1F地下コンコースにて連絡）<br>
+                                                千代田線 ： 二重橋前駅より徒歩5分/日比谷駅より徒歩7分<br>
+                                                丸ノ内線 ： 銀座駅より徒歩5分<br>
+                                                銀座線 ： 銀座駅より徒歩7分/京橋駅より徒歩7分<br>
+                                                三田線 ： 日比谷駅より徒歩5分
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="access-map">
+                                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.327466890697!2d139.76169867569623!3d35.67640157259709!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188bfbd89f700b%3A0x277c49ba34ed38!2z5p2x5Lqs5Zu95Zyf44OV44Kp44O844Op44Og!5e0!3m2!1sja!2sjp!4v1712367358895!5m2!1sja!2sjp" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </section>
@@ -114,7 +132,7 @@
             <!-- 申し込みボタン -->
             <div class="apply-button-center">
                 <a href="#" class="btn-primary">
-                    <img src="img/line-icon.png" alt="LINE" class="line-icon">
+                    <img src="img/button.png" alt="申し込みボタン" class="line-icon">
                     事前申し込みはこちら（無料）
                 </a>
             </div>
@@ -128,74 +146,71 @@
                 <h2 class="section-title-jp">注目の企業</h2>
             </div>
             <div class="featured-companies-wrapper">
-                <!-- 企業1: OPLAN -->
-                <div class="featured-company-horizontal">
-                    <div class="company-logo-container">
-                        <img src="img/company/image 14.png" alt="オープラン株式会社">
-                    </div>
-                    <div class="company-info">
-                        <h3 class="company-name">OPLAN</h3>
-                        <p class="text-16">「ITサービス」を軸に「人」と「グローバル」に向き合い、日本を代表する企業を目指すベンチャー企業。2015年設立。</p>
-                        <p class="company-url">https://oplan.co.jp/</p>
-                    </div>
-                </div>
-                
-                <!-- 企業2: PE-BANK -->
-                <div class="featured-company-horizontal">
-                    <div class="company-logo-container">
-                        <img src="img/company/image 15.png" alt="PE-BANK">
-                    </div>
-                    <div class="company-info">
-                        <h3 class="company-name">PE-BANK</h3>
-                        <p class="text-16">ITフリーランスの仕事探しに特化。Web・SE系を中心に毎月1,000件以上の案件をご紹介。</p>
-                    </div>
-                </div>
-                
-                <!-- 企業3: BOCジャパン合同会社 -->
-                <div class="featured-company-horizontal">
-                    <div class="company-logo-container">
-                        <img src="img/company/image 16.png" alt="BOCジャパン合同会社">
-                    </div>
-                    <div class="company-info">
-                        <h3 class="company-name">BOCジャパン合同会社</h3>
-                        <p class="text-16">グローバルな視点から日本の飲食産業に革新をもたらす。台湾の「食文化」導入により日本の飲食業をクリエイティブに。</p>
-                    </div>
-                </div>
-                
-                <!-- 企業4: creava -->
-                <div class="featured-company-horizontal">
-                    <div class="company-logo-container">
-                        <img src="img/company/image 17.png" alt="creava">
-                    </div>
-                    <div class="company-info">
-                        <h3 class="company-name">creava</h3>
-                        <p class="text-16">クリエイティブな開発チームが提供する月額制システム開発サービス。東京新宿を拠点に活動。</p>
-                        <p class="company-url">https://sucsak.com/</p>
-                    </div>
-                </div>
-                
-                <!-- 企業5: SucSak -->
-                <div class="featured-company-horizontal">
-                    <div class="company-logo-container">
-                        <img src="img/company/image 17.png" alt="SucSak">
-                    </div>
-                    <div class="company-info">
-                        <h3 class="company-name">SucSak</h3>
-                        <p class="text-16">月額制システム開発チームレンタルSucSak(サクサク)を運営。新宿を拠点とするシステム開発会社。</p>
-                        <p class="company-url">https://sucsak.com/</p>
-                    </div>
-                </div>
-                
-                <!-- 企業6: QUARTET communications -->
-                <div class="featured-company-horizontal">
-                    <div class="company-logo-container">
-                        <img src="img/company/image 18.png" alt="QUARTET communications">
-                    </div>
-                    <div class="company-info">
-                        <h3 class="company-name">QUARTET communications</h3>
-                        <p class="text-16">1000業種以上の圧倒的運用実績！リスティング広告、SNS広告など、幅広いマーケティングサービスを提供。</p>
-                    </div>
-                </div>
+                <table class="companies-table">
+                    <tbody>
+                        <!-- 企業1: OPLAN -->
+                        <tr class="company-row">
+                            <td class="company-logo-cell">
+                                <div class="company-logo-container">
+                                    <img src="img/company/image 14.png" alt="オープラン株式会社">
+                                </div>
+                            </td>
+                            <td class="company-info-cell">
+                                <p class="text-16">オープラン株式会社は「ITサービス」を軸に「人」と「グローバル」に向き合い、日本を代表する企業を目指すベンチャー企業。2015年設立。</p>
+                                <p class="company-url">https://oplan.co.jp/</p>
+                            </td>
+                        </tr>
+                        
+                        <!-- 企業2: PE-BANK -->
+                        <tr class="company-row">
+                            <td class="company-logo-cell">
+                                <div class="company-logo-container">
+                                    <img src="img/company/image 15.png" alt="PE-BANK">
+                                </div>
+                            </td>
+                            <td class="company-info-cell">
+                                <p class="text-16">ITフリーランスの仕事探しに特化。Web・SE系を中心に毎月1,000件以上の案件をご紹介。</p>
+                            </td>
+                        </tr>
+                        
+                        <!-- 企業3: BOCジャパン合同会社 -->
+                        <tr class="company-row">
+                            <td class="company-logo-cell">
+                                <div class="company-logo-container">
+                                    <img src="img/company/image 16.png" alt="BOCジャパン合同会社">
+                                </div>
+                            </td>
+                            <td class="company-info-cell">
+                                <p class="text-16">グローバルな視点から日本の飲食産業に革新をもたらす。台湾の「食文化」導入により日本の飲食業をクリエイティブに。</p>
+                            </td>
+                        </tr>
+                        
+                        <!-- 企業4: creava/SucSak（統合） -->
+                        <tr class="company-row">
+                            <td class="company-logo-cell">
+                                <div class="company-logo-container">
+                                    <img src="img/company/image 17.png" alt="creava/SucSak">
+                                </div>
+                            </td>
+                            <td class="company-info-cell">
+                                <p class="text-16">クリエイティブな開発チームが提供する月額制システム開発サービス。東京新宿を拠点に活動するシステム開発会社。</p>
+                                <p class="company-url">SucSak：https://sucsak.com/</p>
+                            </td>
+                        </tr>
+                        
+                        <!-- 企業5: QUARTET communications -->
+                        <tr class="company-row">
+                            <td class="company-logo-cell">
+                                <div class="company-logo-container">
+                                    <img src="img/company/image 18.png" alt="QUARTET communications">
+                                </div>
+                            </td>
+                            <td class="company-info-cell">
+                                <p class="text-16">1000業種以上の圧倒的運用実績！リスティング広告、FacebookやTwitterなどのSNS広告を含む、幅広いマーケティングサービスを提供。</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </section>
@@ -234,9 +249,8 @@
                     <div class="time-slot">10:00〜</div>
                     <div class="speaker-info">
                         <div class="speaker-image">
-                            <img src="img/speakers/djshachou.png" alt="DJ社長">
+                            <img src="img/speakers/djshachou.svg" alt="DJ社長">
                         </div>
-                        <div class="speaker-name">DJ社長</div>
                     </div>
                     <div class="session-title">今、SNSを始めるなら</div>
                 </div>
@@ -248,7 +262,6 @@
                         <div class="speaker-image">
                             <img src="img/speakers/tabata.png" alt="田端信太郎">
                         </div>
-                        <div class="speaker-name">田端信太郎</div>
                     </div>
                     <div class="session-title">会社員で出世する人と独立して成功する人の適正について</div>
                 </div>
@@ -260,7 +273,6 @@
                         <div class="speaker-image">
                             <img src="img/speakers/sou.png" alt="宋世羅">
                         </div>
-                        <div class="speaker-name">宋世羅</div>
                     </div>
                     <div class="session-title">営業出身のフリーランスの生存戦略</div>
                 </div>
@@ -272,7 +284,6 @@
                         <div class="speaker-image">
                             <img src="img/speakers/hayashi.png" alt="林尚弘">
                         </div>
-                        <div class="speaker-name">林尚弘</div>
                     </div>
                     <div class="session-title">SNSを伸ばした先に見える世界</div>
                 </div>
@@ -284,7 +295,6 @@
                         <div class="speaker-image">
                             <img src="img/speakers/kinoshita.png" alt="木下勝寿">
                         </div>
-                        <div class="speaker-name">木下勝寿</div>
                     </div>
                     <div class="session-title">現役上場企業社長が語る<br>最新WEBマーケティング論</div>
                 </div>
@@ -296,7 +306,6 @@
                         <div class="speaker-image">
                             <img src="img/speakers/kabumoto.png" alt="株本祐己">
                         </div>
-                        <div class="speaker-name">株本祐己</div>
                     </div>
                     <div class="session-title">月収300万円までのロードマップ</div>
                 </div>
@@ -318,7 +327,6 @@
                                 <img src="img/speakers/aosasa.png" alt="青笹真史">
                             </div>
                         </div>
-                        <div class="speaker-name">やまもとりゅうけん × 迫佑樹 × 青笹真史</div>
                     </div>
                     <div class="session-title">無数のフリーランスに発注してわかった優秀な人の特徴</div>
                 </div>
@@ -330,7 +338,6 @@
                         <div class="speaker-image">
                             <img src="img/speakers/inoue.png" alt="井上貴裕">
                         </div>
-                        <div class="speaker-name">井上貴裕</div>
                     </div>
                     <div class="session-title">元サイバーエージェント局長による広告業界の未来予想図</div>
                 </div>
@@ -348,7 +355,6 @@
                                 <img src="img/speakers/aiguchi.png" alt="藍口康希">
                             </div>
                         </div>
-                        <div class="speaker-name">板橋晟星 × 藍口康希</div>
                     </div>
                     <div class="session-title">エンジニアとして独立し、年収3000万円を超える方法</div>
                 </div>
@@ -360,7 +366,6 @@
                         <div class="speaker-image">
                             <img src="img/speakers/iwai.png" alt="岩井良明">
                         </div>
-                        <div class="speaker-name">岩井良明</div>
                     </div>
                     <div class="session-title">累計300人以上、起業家を見て感じた成功法則</div>
                 </div>
@@ -372,7 +377,6 @@
                         <div class="speaker-image">
                             <img src="img/speakers/shimabukuro.png" alt="島袋直樹">
                         </div>
-                        <div class="speaker-name">島袋直樹</div>
                     </div>
                     <div class="session-title">フリーランスにおすすめのM＆Aトレンドを紹介</div>
                 </div>
@@ -390,7 +394,6 @@
                                 <img src="img/speakers/kaneto.png" alt="兼頭竜矢">
                             </div>
                         </div>
-                        <div class="speaker-name">植本涼太郎 × 兼頭竜矢</div>
                     </div>
                 </div>
             </div>

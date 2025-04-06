@@ -30,10 +30,41 @@
 
 .section-header.centered .section-title-en {
     margin-bottom: 15px;
-    font-size: 28px;
+    /* 水色に変更、フォントスタイル更新 */
+    color: #81D7FC;
+    font-family: 'Roboto', sans-serif;
+    font-size: 60px;
+    font-style: italic;
     font-weight: 700;
+    line-height: 100%;
 }
 
+/* 新しいサブタイトルデザイン */
+.subtitle-container-new {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.subtitle-container-new .section-title-jp {
+    margin: 0 15px;
+    color: #444545;
+    font-family: "Noto Sans JP";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100%;
+}
+
+.subtitle-container-new .title-line {
+    display: inline-block;
+    width: 30px;
+    height: 1px;
+    background-color: #444545;
+}
+
+/* 古いサブタイトルスタイルは残しておく */
 .subtitle-container {
     display: inline-block;
     border: 2px dashed #FDD35C;
@@ -53,16 +84,60 @@
     margin: 0 auto;
 }
 
-.summary-item {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 30px;
-    padding: 0 20px;
+/* テーブルスタイルを更新 */
+.summary-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.summary-table tr {
+    border-bottom: 2px dashed #FDD35C;
+}
+
+.summary-table tr:last-child {
+    border-bottom: none;
+}
+
+.summary-table td {
+    position: relative;
+}
+
+/* 破線の表示 */
+.summary-table tr:not(:last-child) td::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 0;
+    border-bottom: 1px dashed #C4C4C4;
+}
+
+.summary-label-cell {
+    width: 170px;
+    height: 55px;
+    vertical-align: middle; /* 上下の中心揃え */
+    padding: 20px 15px 20px 0;
+    text-align: center; /* 左右の中心揃え */
+}
+
+.summary-content-cell {
+    vertical-align: middle; /* 上下の中心揃え */
+    padding: 20px 0;
+    color: #333;
+    font-family: "Noto Sans JP";
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1.8;
+    text-align: left; /* 左揃えに変更 */
 }
 
 .summary-label {
-    flex: 0 0 105px;
-    height: 43px;
+    display: inline-block;
+    width: 170px;
+    height: 55px;
+    flex-shrink: 0;
     background: #FFF;
     color: #FDD35C;
     text-align: center;
@@ -70,21 +145,72 @@
     font-size: 22px;
     font-style: normal;
     font-weight: 700;
-    line-height: 40px;
+    line-height: 55px;
     border-radius: 27.5px;
     border: 2px solid #FDD35C;
-    padding: 0 20px;
-    margin-right: 30px;
+    padding: 0 10px;
     white-space: nowrap;
 }
 
-.summary-content {
+/* アクセス情報のレイアウト更新 */
+.access-container {
+    display: flex;
+    gap: 30px;
+}
+
+.station-info {
     flex: 1;
-    color: #333;
-    font-family: "Noto Sans JP";
-    font-size: 18px;
-    font-weight: 500;
-    line-height: 1.8;
+}
+
+.access-map {
+    flex: 1;
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* アクセスリストのスタイル */
+.access-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.access-point {
+    margin-bottom: 14px;
+    padding-left: 25px;
+    position: relative;
+    font-size: 14px;
+}
+
+.access-marker {
+    position: absolute;
+    left: 0;
+    top: 6px;
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background-color: #FDD35C;
+    text-align: center;
+    border-radius: 0;
+    margin-right: 7px;
+    /* リスト項目のマーカーとして表示 */
+    content: '';
+}
+
+/* リスト項目のマーカーの前に矢印を追加 */
+.access-point .access-marker::before {
+    content: '▶';
+    position: absolute;
+    left: -3px;
+    top: -8px;
+    color: #FDD35C;
+    font-size: 12px;
+}
+
+/* 古いアクセススタイルの一部は保持 */
+.station {
+    margin-bottom: 25px;
 }
 
 .divider {
@@ -96,27 +222,55 @@
     margin-right: auto;
 }
 
-.access-map {
-    margin: 20px 0;
-    max-width: 600px;
-}
-
-.access-map img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
 /* レスポンシブ対応 */
 @media (max-width: 767px) {
-    .summary-item {
-        flex-direction: column;
+    .section-header.centered .section-title-en {
+        font-size: 40px;
+    }
+    
+    .summary-table {
+        border-spacing: 0;
+    }
+    
+    .summary-label-cell,
+    .summary-content-cell {
+        display: block;
+        width: 100%;
+        padding: 10px 0;
+    }
+    
+    .summary-label-cell {
+        padding-bottom: 5px;
+    }
+    
+    .summary-content-cell {
+        padding-top: 0;
     }
     
     .summary-label {
-        margin-bottom: 15px;
-        margin-right: 0;
+        width: auto;
+        font-size: 18px;
+        line-height: 35px;
+    }
+    
+    .access-container {
+        flex-direction: column;
+    }
+    
+    .access-map {
+        width: 100%;
+        height: 200px;
+    }
+    
+    /* SpでのBR表示 */
+    .sp {
+        display: none;
+    }
+    
+    @media (max-width: 767px) {
+        .sp {
+            display: inline;
+        }
     }
 }
 
@@ -365,30 +519,18 @@
 .featured-companies-section {
     background-color: #fff;
     position: relative;
-    padding: 60px 0;
+    padding: 40px 0; /* パディングを減らして縦方向にコンパクトに */
 }
 
+/* 黄色の左右のデコレーションを削除 */
 .featured-companies-section::before,
 .featured-companies-section::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    width: 20px;
-    height: 100%;
-    background-color: #FDD35C;
-    z-index: 0;
-}
-
-.featured-companies-section::before {
-    left: 0;
-}
-
-.featured-companies-section::after {
-    right: 0;
+    display: none;
 }
 
 .section-header.centered {
     text-align: center;
+    margin-bottom: 30px; /* マージンを減らしてコンパクトに */
 }
 
 .section-header.centered .section-title-en {
@@ -396,63 +538,84 @@
 }
 
 .featured-companies-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    margin-top: 40px;
     position: relative;
     z-index: 1;
+    margin-top: 20px; /* マージンを減らしてコンパクトに */
 }
 
-.featured-company-horizontal {
-    display: flex;
-    align-items: center;
-    background-color: #fff;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+/* 黄色い枠を削除して白背景のテーブル構造に変更 */
+.companies-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: none; /* 枠線を削除 */
+    border-radius: 0;
+    overflow: hidden;
+}
+
+.company-row {
+    border-bottom: 1px solid #eee; /* 薄いグレーの線に変更 */
+}
+
+.company-row:last-child {
+    border-bottom: none;
+}
+
+.company-logo-cell {
+    width: 160px; /* 幅を少し縮小 */
+    padding: 12px 15px; /* パディングを減らしてコンパクトに */
+    vertical-align: middle;
+    border-right: 1px solid #eee; /* 薄いグレーの線に変更 */
+    background-color: #fff; /* 背景を白に変更 */
+}
+
+.company-info-cell {
+    padding: 12px 15px; /* パディングを減らしてコンパクトに */
+    vertical-align: middle;
 }
 
 .company-logo-container {
-    flex: 0 0 120px;
-    margin-right: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 130px; /* 幅を少し縮小 */
+    height: 65px; /* 高さを少し縮小 */
 }
 
 .company-logo-container img {
-    width: 100%;
-    height: auto;
-    max-height: 100px;
+    max-width: 100%;
+    max-height: 100%;
     object-fit: contain;
 }
 
-.company-info {
-    flex: 1;
-}
-
-.company-name {
-    font-size: 18px;
-    font-weight: 700;
-    color: #333;
-    margin-bottom: 10px;
+.company-info-cell .text-16 {
+    margin-bottom: 5px; /* マージンを減らしてコンパクトに */
+    color: #444545;
+    line-height: 1.3; /* 行間を狭くする */
 }
 
 .company-url {
     font-size: 14px;
-    color: #00A8F0;
-    margin-top: 5px;
+    color: #00A8F0; /* 青色に戻す */
+    margin-top: 3px; /* マージンを減らしてコンパクトに */
 }
 
 /* レスポンシブ対応 */
 @media (max-width: 767px) {
-    .featured-company-horizontal {
-        flex-direction: column;
-        align-items: flex-start;
+    .company-logo-cell, 
+    .company-info-cell {
+        display: block;
+        width: 100%;
+    }
+    
+    .company-logo-cell {
+        border-right: none;
+        border-bottom: 1px solid #eee;
+        padding: 10px;
     }
     
     .company-logo-container {
-        margin-right: 0;
-        margin-bottom: 20px;
-        align-self: center;
+        margin: 0 auto;
     }
 }
 

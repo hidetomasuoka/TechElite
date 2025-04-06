@@ -9,6 +9,7 @@
     --text-color: #444545;
     --white-color: #FFFFFF;
     --line-color: #06C755;
+    --container-width: 960px; /* コンテナ幅の変数を追加 */
 }
 
 /* ===== 基本スタイル ===== */
@@ -41,7 +42,7 @@ a {
 /* ===== コンテナ ===== */
 .container {
     width: 100%;
-    max-width: 960px;
+    max-width: var(--container-width);
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -168,3 +169,4 @@ section {
     font-size: 16px;
     line-height: 1.4;
 }
+

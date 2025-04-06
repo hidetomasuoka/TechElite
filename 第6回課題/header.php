@@ -11,20 +11,6 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- ヘッダー部分 -->
-    <header class="site-header">
-        <div class="header-top">
-            <div class="container">
-                <!-- スポンサー情報 -->
-                <div class="sponsored-by">
-                    <div class="sponsor-text">sponsored by</div>
-                    <div class="sponsor-logo">
-                        <img src="img/dym.png" alt="DYM">
-                    </div>
-                </div>
-            </div>
-        </div>
-        
         <!-- メインビジュアル部分 -->
         <div class="main-visual">
             <div class="container">
@@ -33,14 +19,14 @@
                     <div class="stocksun-logo">
                         <img src="img/stocksun_logo.png" alt="StockSun">
                     </div>
-
-                    <!-- メインタイトル -->
-                    <div class="main-title">
-                        <img src="img/kv.png" alt="FREELANCE SUMMIT">
-                    </div>
-
+        
                     <!-- サブタイトル -->
                     <h1 class="sub-title">日本最大規模のフリーランスイベント</h1>
+
+                    <!-- タイトル画像 -->
+                    <div class="main-title">
+                        <img src="img/title.svg" alt="FREELANCE SUMMIT">
+                    </div>
 
                     <!-- 開催日時・場所 -->
                     <div class="event-info">

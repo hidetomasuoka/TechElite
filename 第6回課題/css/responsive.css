@@ -2,6 +2,35 @@
  * responsive.css - レスポンシブ対応のメディアクエリ
  */
 
+/* ===== メディアクエリ - 特大画面サイズ (1440px以上) ===== */
+@media (min-width: 1440px) {
+    .container {
+        max-width: var(--container-width);
+    }
+
+    .main-visual {
+        position: relative;
+    }
+
+    .main-visual::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: 0 auto;
+        max-width: var(--container-width);
+        z-index: 1;
+    }
+
+    .main-visual-content {
+        width: 100%;
+        max-width: var(--container-width);
+        margin: 0 auto;
+    }
+}
+
 /* ===== メディアクエリ - 中間サイズ (840px〜960px) ===== */
 @media (min-width: 840px) and (max-width: 960px) {
     .event-info {
@@ -52,7 +81,7 @@
 @media (min-width: 961px) {
     .container {
         padding: 0 20px;
-        max-width: 960px;
+        max-width: var(--container-width);
         margin: 0 auto;
     }
     
@@ -201,5 +230,32 @@
     
     .session-card {
         padding: 15px;
+    }
+    
+    /* メインビジュアルのレスポンシブ調整 */
+    .main-visual-content {
+        padding: 20px 0;
+        align-items: center;
+    }
+    
+    .stocksun-logo {
+        width: 80px;
+        margin-bottom: 15px;
+    }
+    
+    .main-title {
+        max-width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .apply-button {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .apply-button .btn-primary {
+        width: 100%;
+        justify-content: center;
     }
 }
