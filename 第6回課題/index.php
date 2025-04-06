@@ -19,42 +19,47 @@
     <!-- イベント開催概要セクション -->
     <section class="event-summary-section" id="summary">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title-jp">イベント開催概要</h2>
-                <div class="section-title-en">Event Summary</div>
+            <div class="section-header centered">
+                <div class="section-title-en accent-color">Event Summary</div>
+                <div class="subtitle-container">
+                    <h2 class="section-title-jp">イベント開催概要</h2>
+                </div>
             </div>
-            <div class="summary-grid">
+            <div class="summary-content-wrapper">
                 <!-- 開催日程 -->
                 <div class="summary-item">
                     <div class="summary-label">開催日程</div>
                     <div class="summary-content">2023年3月4日（土）開場10:00 閉場18:00（受付開始9:30-）</div>
                 </div>
+                <div class="divider"></div>
                 
                 <!-- 会場 -->
                 <div class="summary-item">
                     <div class="summary-label">会場</div>
                     <div class="summary-content">東京国際フォーラム ホールE2</div>
                 </div>
+                <div class="divider"></div>
                 
                 <!-- イベント内容 -->
                 <div class="summary-item">
                     <div class="summary-label">イベント内容</div>
                     <div class="summary-content">企業ブース出展：60ブース<br>ビジネス系セミナー：12枠</div>
                 </div>
+                <div class="divider"></div>
                 
                 <!-- 対象者 -->
                 <div class="summary-item">
                     <div class="summary-label">対象者</div>
                     <div class="summary-content">経営者 / フリーランス / 独立志望の会社員</div>
                 </div>
+                <div class="divider"></div>
                 
                 <!-- アクセス -->
                 <div class="summary-item">
                     <div class="summary-label">アクセス</div>
                     <div class="summary-content">
                         <div class="access-map">
-                            <!-- アクセスマップ画像が存在しないため、一時的に削除します -->
-                            <!-- <img src="img/Contents/access_map.png" alt="アクセスマップ"> -->
+                            <img src="img/Contents/booth.png" alt="アクセスマップ">
                         </div>
                         <p class="text-16 font-bold">【最寄駅】</p>
                         <p class="text-16">JR<br>有楽町駅より徒歩1分<br>東京駅より徒歩5分</p>
@@ -115,6 +120,86 @@
             </div>
         </div>
     </section>
+    <!-- 注目の企業セクション -->
+    <section class="featured-companies-section" id="featured">
+        <div class="container">
+            <div class="section-header centered">
+                <div class="section-title-en accent-color">Pick Up</div>
+                <h2 class="section-title-jp">注目の企業</h2>
+            </div>
+            <div class="featured-companies-wrapper">
+                <!-- 企業1: OPLAN -->
+                <div class="featured-company-horizontal">
+                    <div class="company-logo-container">
+                        <img src="img/company/image 14.png" alt="オープラン株式会社">
+                    </div>
+                    <div class="company-info">
+                        <h3 class="company-name">OPLAN</h3>
+                        <p class="text-16">「ITサービス」を軸に「人」と「グローバル」に向き合い、日本を代表する企業を目指すベンチャー企業。2015年設立。</p>
+                        <p class="company-url">https://oplan.co.jp/</p>
+                    </div>
+                </div>
+                
+                <!-- 企業2: PE-BANK -->
+                <div class="featured-company-horizontal">
+                    <div class="company-logo-container">
+                        <img src="img/company/image 15.png" alt="PE-BANK">
+                    </div>
+                    <div class="company-info">
+                        <h3 class="company-name">PE-BANK</h3>
+                        <p class="text-16">ITフリーランスの仕事探しに特化。Web・SE系を中心に毎月1,000件以上の案件をご紹介。</p>
+                    </div>
+                </div>
+                
+                <!-- 企業3: BOCジャパン合同会社 -->
+                <div class="featured-company-horizontal">
+                    <div class="company-logo-container">
+                        <img src="img/company/image 16.png" alt="BOCジャパン合同会社">
+                    </div>
+                    <div class="company-info">
+                        <h3 class="company-name">BOCジャパン合同会社</h3>
+                        <p class="text-16">グローバルな視点から日本の飲食産業に革新をもたらす。台湾の「食文化」導入により日本の飲食業をクリエイティブに。</p>
+                    </div>
+                </div>
+                
+                <!-- 企業4: creava -->
+                <div class="featured-company-horizontal">
+                    <div class="company-logo-container">
+                        <img src="img/company/image 17.png" alt="creava">
+                    </div>
+                    <div class="company-info">
+                        <h3 class="company-name">creava</h3>
+                        <p class="text-16">クリエイティブな開発チームが提供する月額制システム開発サービス。東京新宿を拠点に活動。</p>
+                        <p class="company-url">https://sucsak.com/</p>
+                    </div>
+                </div>
+                
+                <!-- 企業5: SucSak -->
+                <div class="featured-company-horizontal">
+                    <div class="company-logo-container">
+                        <img src="img/company/image 17.png" alt="SucSak">
+                    </div>
+                    <div class="company-info">
+                        <h3 class="company-name">SucSak</h3>
+                        <p class="text-16">月額制システム開発チームレンタルSucSak(サクサク)を運営。新宿を拠点とするシステム開発会社。</p>
+                        <p class="company-url">https://sucsak.com/</p>
+                    </div>
+                </div>
+                
+                <!-- 企業6: QUARTET communications -->
+                <div class="featured-company-horizontal">
+                    <div class="company-logo-container">
+                        <img src="img/company/image 18.png" alt="QUARTET communications">
+                    </div>
+                    <div class="company-info">
+                        <h3 class="company-name">QUARTET communications</h3>
+                        <p class="text-16">1000業種以上の圧倒的運用実績！リスティング広告、SNS広告など、幅広いマーケティングサービスを提供。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 
     <!-- 出展企業一覧セクション -->
     <section class="exhibitors-section" id="exhibitors">
@@ -135,58 +220,6 @@
         </div>
     </section>
 
-    <!-- 注目の企業セクション -->
-    <section class="featured-companies-section" id="featured">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title-jp">注目の企業</h2>
-                <div class="section-title-en accent-color">Pick Up</div>
-            </div>
-            <div class="featured-grid">
-                <!-- 企業1 -->
-                <div class="featured-company">
-                    <div class="company-logo">
-                        <img src="img/company/image 14.png" alt="オープラン株式会社">
-                    </div>
-                    <p class="text-16">オープラン株式会社は「ITサービス」を軸に「人」と「グローバル」に向き合い日本を代表する企業になるべく2015年に産声をあげたベンチャー企業です。</p>
-                    <p class="text-16">https://oplan.co.jp/</p>
-                </div>
-                
-                <!-- 企業2 -->
-                <div class="featured-company">
-                    <div class="company-logo">
-                        <img src="img/company/image 15.png" alt="PE-BANK">
-                    </div>
-                    <p class="text-16">ITフリーランスの仕事探しなら【PE-BANK】へ。Web・SE系を中心に毎月1,000件以上のご紹介。</p>
-                </div>
-                
-                <!-- 企業3 -->
-                <div class="featured-company">
-                    <div class="company-logo">
-                        <img src="img/company/image 16.png" alt="ラーメン協会">
-                    </div>
-                    <p class="text-16">台湾の「食文化」の導入により、日本の飲食業をクリエイティブに。</p>
-                </div>
-                
-                <!-- 企業4 -->
-                <div class="featured-company">
-                    <div class="company-logo">
-                        <img src="img/company/image 17.png" alt="SucSak">
-                    </div>
-                    <p class="text-16">月額制システム開発チームレンタルSucSak(サクサク)を運営している東京新宿のシステム開発会社です。</p>
-                    <p class="text-16">：https://sucsak.com/</p>
-                </div>
-                
-                <!-- 企業5 -->
-                <div class="featured-company">
-                    <div class="company-logo">
-                        <img src="img/company/image 18.png" alt="広告代理店">
-                    </div>
-                    <p class="text-16">1000業種以上の圧倒的運用実績！リスティング、Facebook・TwitterなどのSNS広告もおまかせ。</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- タイムスケジュールセクション -->
     <section class="schedule-section" id="schedule" style="background-image: url('img/speakers/back.png'); background-size: cover; background-position: center; padding: 80px 0;">
