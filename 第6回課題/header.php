@@ -70,10 +70,8 @@
         <!-- サイドボタン -->
         <div class="side-button">
             <a href="#">
+                <span>申し込みはこちら</span>
                 <img src="img/line-icon.png" alt="LINE" class="line-icon">
-                <span>申<br>し込みはこちら</span>
             </a>
         </div>
     </header>
-</body>
-</html>

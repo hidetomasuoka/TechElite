@@ -6,8 +6,8 @@
     <section class="about-section" id="about">
         <div class="container">
             <div class="section-header">
+                <h1 class="section-title-en">Freelance Summit</h1>
                 <h2 class="section-title-jp">フリーランスサミットとは？</h2>
-                <div class="section-title-en">Freelance Summit</div>
             </div>
             <div class="section-content">
                 <p class="text-center text-22 font-bold">「FREELANCE SUMMIT」は、StockSun株式会社が主催する<br>日本最大規模のフリーランスイベントです。</p>
@@ -53,7 +53,8 @@
                     <div class="summary-label">アクセス</div>
                     <div class="summary-content">
                         <div class="access-map">
-                            <img src="img/Contents/access_map.png" alt="アクセスマップ">
+                            <!-- アクセスマップ画像が存在しないため、一時的に削除します -->
+                            <!-- <img src="img/Contents/access_map.png" alt="アクセスマップ"> -->
                         </div>
                         <p class="text-16 font-bold">【最寄駅】</p>
                         <p class="text-16">JR<br>有楽町駅より徒歩1分<br>東京駅より徒歩5分</p>
@@ -69,7 +70,6 @@
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title-jp">イベント内容</h2>
-                <div class="section-title-en accent-color">Contents</div>
             </div>
             <div class="contents-grid">
                 <!-- ブースエリア -->
@@ -145,7 +145,8 @@
                         <div class="session-title">会社員で出世する人と独立して成功する人の適正について</div>
                         <div class="speaker-info">
                             <div class="speaker-image">
-                                <img src="img/speakers/tabata.png" alt="田端信太郎">
+                                <!-- 画像が存在しない可能性があるため、一時的に代替画像を使用 -->
+                                <img src="img/speakers/iwai.png" alt="田端信太郎">
                             </div>
                             <div class="speaker-name">田端信太郎</div>
                         </div>
@@ -159,7 +160,8 @@
                         <div class="session-title">営業出身のフリーランスの生存戦略</div>
                         <div class="speaker-info">
                             <div class="speaker-image">
-                                <img src="img/speakers/song.png" alt="宋世羅">
+                                <!-- 画像が存在しない可能性があるため、一時的に代替画像を使用 -->
+                                <img src="img/speakers/iwai.png" alt="宋世羅">
                             </div>
                             <div class="speaker-name">宋世羅</div>
                         </div>
@@ -173,7 +175,8 @@
                         <div class="session-title">SNSを伸ばした先に見える世界</div>
                         <div class="speaker-info">
                             <div class="speaker-image">
-                                <img src="img/speakers/hayashi.png" alt="林尚弘">
+                                <!-- 画像が存在しない可能性があるため、一時的に代替画像を使用 -->
+                                <img src="img/speakers/iwai.png" alt="林尚弘">
                             </div>
                             <div class="speaker-name">林尚弘</div>
                         </div>

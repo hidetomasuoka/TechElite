@@ -2,6 +2,23 @@
  * responsive.css - レスポンシブ対応のメディアクエリ
  */
 
+/* ===== メディアクエリ - 中間サイズ (840px〜960px) ===== */
+@media (min-width: 840px) and (max-width: 960px) {
+    .event-info {
+        flex-direction: row;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .schedule-grid {
+        gap: 15px;
+    }
+    
+    .session-title {
+        font-size: 18px;
+    }
+}
+
 /* ===== メディアクエリ - タブレット (768px〜960px) ===== */
 @media (min-width: 768px) {
     .container {
@@ -35,6 +52,8 @@
 @media (min-width: 961px) {
     .container {
         padding: 0 20px;
+        max-width: 960px;
+        margin: 0 auto;
     }
     
     .main-visual-content {
@@ -133,6 +152,11 @@
         font-size: 18px;
     }
     
+    .speaker-info {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+    
     .summary-label {
         font-size: 18px;
         padding: 10px 20px;
@@ -142,12 +166,40 @@
         font-size: 16px;
     }
     
+    .exhibitors-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .exhibitors-column {
+        width: 100%;
+    }
+    
+    .featured-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
     .footer-flex {
         gap: 20px;
+        justify-content: center;
+        text-align: center;
+    }
+    
+    .footer-logo {
+        align-items: center;
     }
     
     .btn-outline {
         font-size: 16px;
         padding: 10px 20px;
+    }
+    
+    /* スケジュールセクションのカード間隔調整 */
+    .schedule-grid {
+        gap: 30px;
+    }
+    
+    .session-card {
+        padding: 15px;
     }
 }
