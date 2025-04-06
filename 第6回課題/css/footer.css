@@ -1,0 +1,43 @@
+/* 
+ * footer.css - フッター関連のスタイル
+ */
+
+/* ===== Footer ===== */
+.site-footer {
+    background-color: #333;
+    color: var(--white-color);
+    padding: 40px 0;
+}
+
+.footer-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.footer-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.footer-logo-image {
+    width: 100px;
+}
+
+.footer-company {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.footer-links {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.footer-button {
+    text-align: center;
+}

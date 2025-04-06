@@ -1,0 +1,323 @@
+/* 
+ * sections.css - 各セクション固有のスタイル
+ */
+
+/* ===== About Section ===== */
+.about-section {
+    background-color: #fff;
+}
+
+.section-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.section-content p {
+    margin-bottom: 20px;
+    line-height: 2.5;
+}
+
+/* ===== Event Summary Section ===== */
+.event-summary-section {
+    background-color: #fff;
+}
+
+.summary-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+.summary-item {
+    margin-bottom: 40px;
+}
+
+.summary-label {
+    display: inline-block;
+    width: 105px;
+    height: 43px;
+    flex-shrink: 0;
+    background: #FFF;
+    color: #FDD35C;
+    text-align: center;
+    font-family: "Noto Sans JP";
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 40px; /* 181.818% */
+    border-radius: 27.5px;
+    border: 2px solid #FDD35C;
+    padding: 0 20px;
+    margin-bottom: 15px;
+}
+
+.summary-content {
+    color: #FDD35C;
+    text-align: center;
+    font-family: "Noto Sans JP";
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 40px; /* 181.818% */
+    padding-left: 20px;
+}
+
+.access-map {
+    margin: 20px 0;
+}
+
+/* ===== Contents Section ===== */
+.contents-section {
+    background-color: #FFF6DE;
+}
+
+.contents-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.content-card {
+    background-color: #fff;
+    border: 3px solid var(--yellow-accent);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.content-card-header {
+    background-color: var(--yellow-accent);
+    padding: 15px;
+    text-align: center;
+}
+
+.content-card-header h3 {
+    color: #fff;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.content-card-body {
+    padding: 20px;
+    text-align: center;
+}
+
+.content-title {
+    margin-bottom: 15px;
+}
+
+.content-highlight {
+    display: block;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--yellow-accent);
+    margin-bottom: 10px;
+}
+
+.content-number {
+    display: block;
+    font-size: 48px;
+    font-weight: 600;
+    color: var(--yellow-accent);
+}
+
+.content-image {
+    margin-top: 20px;
+}
+
+.content-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.apply-button-center {
+    text-align: center;
+    margin-top: 50px;
+}
+
+/* ===== Schedule Section ===== */
+.schedule-section {
+    background-color: #fff;
+    position: relative;
+}
+
+.schedule-section::before {
+    content: '';
+    /* 背景パターン画像を完全に削除し、単色背景にします */
+    background-color: #f7f7f7;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.1;
+    z-index: 0;
+}
+
+.schedule-grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.schedule-item {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.time-slot {
+    background-color: #fff;
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 5px;
+    min-width: 80px;
+    text-align: center;
+}
+
+.session-card {
+    background-color: rgba(241, 251, 255, 0.6);
+    border-radius: 5px;
+    padding: 20px;
+    flex: 1;
+}
+
+.session-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    letter-spacing: 0.08em;
+    line-height: 1.25;
+}
+
+.speaker-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.speaker-image {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid #fff;
+}
+
+.speaker-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.speaker-name {
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: 0.08em;
+}
+
+.mc-card {
+    background-color: rgba(241, 251, 255, 0.6);
+}
+
+/* ===== Exhibitors Section ===== */
+.exhibitors-section {
+    background-color: #fff;
+}
+
+.exhibitors-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.exhibitors-column p {
+    line-height: 2;
+}
+
+/* ===== Featured Companies Section ===== */
+.featured-companies-section {
+    background-color: #fff;
+}
+
+.featured-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+}
+
+.featured-company {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.company-logo {
+    max-width: 200px;
+    margin-bottom: 10px;
+}
+
+.company-logo img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+/* ===== FAQ Section ===== */
+.faq-section {
+    background-color: #fff;
+}
+
+.faq-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+.faq-item {
+    margin-bottom: 30px;
+}
+
+.faq-question,
+.faq-answer {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 10px;
+    align-items: flex-start;
+}
+
+.question-icon,
+.answer-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    font-size: 18px;
+    font-weight: 500;
+    flex-shrink: 0;
+}
+
+.question-icon {
+    background-color: var(--accent-color);
+    color: #fff;
+}
+
+.answer-icon {
+    background-color: var(--yellow-accent);
+    color: #fff;
+}
+
+.question-text,
+.answer-text {
+    font-size: 18px;
+    line-height: 1.5;
+}
