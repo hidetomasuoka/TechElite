@@ -1,0 +1,11 @@
+/* 
+ * フリーランスサミットLP スタイルシート
+ * Figmaデザイン（ベース解像度1440px）に基づいて作成
+ */
+
+/* 分割したCSSファイルをインポート */
+@import 'css/base.css';
+@import 'css/header.css';
+@import 'css/sections.css';
+@import 'css/footer.css';
+@import 'css/responsive.css';
