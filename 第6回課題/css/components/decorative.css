@@ -1,0 +1,255 @@
+/* Import variables */
+@import '../variables.css';
+
+/* Hexagon decorations */
+.hexagon {
+  display: none;
+}
+
+.hexagon2 {
+  position: absolute;
+} 
+
+.hexagon img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* Header hexagons */
+.hexagon header_1,
+.hexagon header_2,
+.hexagon header_3,
+.hexagon header_4,
+.hexagon header_5,
+.hexagon header_6 {
+  display: none;
+}
+
+/* About section hexagons */
+.about_section_7 {
+  width: 122.08px;
+  height: 117.87px;
+  top: 45.5%;
+  left: 7%;
+}
+
+.about_section_8 {
+  width: 289.06px;
+  height: 279.83px;
+  top: 54.5%;
+  left: 0%;
+}
+
+.about_section_9 {
+  width: 205.88px;
+  height: 198.91px;
+  top: 3.7%;
+  left: 88.2%;
+}
+
+/* Content section hexagons */
+.content_section_10 {
+  width: 67.49px;
+  height: 65.17px;
+  top: 60.8%;
+  left: 8%;
+}
+
+.content_section_11 {
+  width: 177.03px;
+  height: 170.92px;
+  top: 72.7%;
+  left: 0.5%;
+}
+
+.content_section_12 {
+  width: 235.18px;
+  height: 227.67px;
+  top: 18.5%;
+  left: 85.3%;
+}
+
+/* Exhibitors section hexagons */
+.Exhibitors_section_13 {
+  width: 289.06px;
+  height: 279.83px;
+  top: 26.5%;
+  left: 0%;
+}
+
+.Exhibitors_section_14 {
+  width: 205.88px;
+  height: 198.91px;
+  top: 2.5%;
+  left: 77.4%;
+}
+
+.Exhibitors_section_15 {
+  width: 67.49px;
+  height: 65.17px;
+  top: 28.5%;
+  left: 92.4%;
+}
+
+.Exhibitors_section_16 {
+  width: 79.83px;
+  height: 77.07px;
+  top: 74%;
+  left: -2%;
+  display: none;
+}
+
+/* FAQ section hexagons */
+.faq_section_17 {
+  width: 137.38px;
+  height: 133px;
+  top: 48%;
+  left: 0%;
+}
+
+.faq_section_18 {
+  width: 205.88px;
+  height: 198.91px;
+  top: 0.5%;
+  left: 85.5%;
+}
+
+.faq_section_19 {
+  width: 67.49px;
+  height: 65.17px;
+  top: 30%;
+  left: 90.5%;
+}
+
+/* Subtitle decorative lines */
+#subtitle::before {
+  content: '';
+  flex-grow: 0.5;
+  border: var(--border-width-thin) solid var(--color-text);
+  max-width: 30px;
+  width: 100%; 
+  margin-right: 14px;
+  margin-top: -2px;
+}
+
+#subtitle::after {
+  content: '';
+  flex-grow: 0.5;
+  border: var(--border-width-thin) solid var(--color-text);
+  max-width: 30px;
+  width: 100%;    
+  margin-left: 14px;
+  margin-top: -2px;
+}
+
+#subtitle1::before {
+  content: '';
+  flex-grow: 0.5;
+  border: var(--border-width-thin) solid var(--color-text);
+  max-width: 30px;
+  width: 100%; 
+  margin-right: 23px;
+  margin-top: -2px;
+}    
+
+#subtitle1::after {
+  content: '';
+  flex-grow: 0.5;
+  border: var(--border-width-thin) solid var(--color-text);
+  max-width: 30px;
+  width: 100%;    
+  margin-top: -2px;
+  margin-left: 38px;
+}
+
+#subtitle2::before {
+  content: '';
+  flex-grow: 0.5;
+  border: var(--border-width-thin) solid var(--color-text);
+  max-width: 30px;
+  width: 100%; 
+  margin-right: 15px;
+  margin-top: 1px;
+}    
+
+#subtitle2::after {
+  content: '';
+  flex-grow: 0.5;
+  border: var(--border-width-thin) solid var(--color-text);
+  max-width: 30px;
+  width: 100%;    
+  margin-top: 2px;
+  margin-left: 25px;
+}
+
+#subtitle3::before,
+#subtitle3::after {
+  content: '';
+  flex-grow: 0.5;
+  border: var(--border-width-thin) solid var(--color-text);
+  margin: 0 20px;
+  max-width: 30px;
+  width: 100%;    
+}
+
+#subtitle4::before {
+  content: '';
+  flex-grow: 0.5;
+  border: var(--border-width-thin) solid var(--color-text);
+  max-width: 30px;
+  width: 100%; 
+  margin-right: 45px;
+  margin-top: 3px;
+}
+
+#subtitle4::after {
+  content: '';
+  flex-grow: 0.5;
+  border: var(--border-width-thin) solid var(--color-text);
+  max-width: 30px;
+  width: 100%; 
+  margin-left: 60px;
+  margin-top: 3px;
+}
+
+#subtitle5::before {
+  content: '';
+  flex-grow: 0.5;
+  border: var(--border-width-thin) solid var(--color-text);
+  max-width: 30px;
+  width: 100%; 
+  margin-right: 17px;
+  margin-top: 0px;
+}
+
+#subtitle5::after {
+  content: '';
+  flex-grow: 0.5;
+  border: var(--border-width-thin) solid var(--color-text);
+  max-width: 30px;
+  width: 100%; 
+  margin-left: 26px;
+  margin-top: 0px;
+}
+
+.time_schedule::before {
+  content: '';
+  flex-grow: 0.5;
+  border: var(--border-width-thin) solid var(--color-white);
+  margin-top: -6px;
+  max-width: 30px;
+  width: 100%;    
+  margin-right: 20px;    
+}
+
+.time_schedule::after {
+  content: '';
+  flex-grow: 0.5;
+  border: var(--border-width-thin) solid var(--color-white);
+  margin-top: -6px;
+  max-width: 30px;
+  width: 100%;
+  margin-left: 20px;  
+}

@@ -1,0 +1,282 @@
+/* Import variables */
+@import '../variables.css';
+
+/* Time schedule section */
+#timeschedule_section {
+  background-image: url(../../img/timeschedule_background.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding-top: 91px;
+  padding-bottom: 7px;
+}
+
+.content .time_schedule {
+  display: flex;
+  position: relative;
+  align-items: center;
+  text-align: center; 
+  justify-content: center;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-white);
+  line-height: var(--line-height-sm);
+  margin-bottom: var(--spacing-xxl); 
+  width: 100%;      
+}
+
+.time_schedule_container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  column-gap: 30px;
+  row-gap: 22px;
+  margin: -2px auto 30px auto; /* Reduced bottom margin when accordion is closed */
+  position: relative;
+}
+
+/* Apply original margin when accordion is open */
+.time_schedule_container.accordion-open {
+  margin: -2px auto 184px auto;
+}
+
+.accordion_button {
+  position: absolute;
+  border: 1px solid var(--color-white);
+  width: 123px;
+  height: 33px;
+  background-color: var(--color-black);
+  color: var(--color-white);
+  font-family: var(--font-family-secondary);
+  font-size: var(--font-size-lg);
+  font-style: italic;
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-sm);
+  text-align: center;    
+  top: 254px;
+  right: 33.33%;
+  transform: translateX(50%);
+  cursor: pointer;
+  z-index: 10;
+}
+
+.time_schedule_item,
+.hidden.show {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 300px;
+  width: 100%;
+  height: 254px;
+  border-radius: var(--border-radius-sm);
+  background: var(--color-bg-light);
+}
+
+.time_schedule_item_sub,
+.hidden.show {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 300px;
+  height: 192px;
+  border-radius: var(--border-radius-sm);
+  background: var(--color-bg-light);
+}
+
+/* Schedule item photos and positioning */
+.logo {
+  position: absolute;
+}
+
+.item_phot {
+  top: 33%;
+  left: 49%;
+  transform: translate(-50%, -50%);
+  width: 130px;
+  height: 133.76px;
+}
+
+.item_phot_second_left {
+  top: 38%;
+  left: 21%;
+  transform: translate(-50%, -50%);
+  width: 100.16px;
+  height: 100.16px; 
+  z-index: 3;
+}
+
+.item_phot_second_center {
+  top: 38%;
+  left: 51%;
+  transform: translate(-50%, -50%);
+  width: 100.16px;
+  height: 100.16px; 
+  z-index: 2;
+}
+
+.item_phot_second_right {
+  top: 38%;
+  left: 81%;
+  transform: translate(-50%, -50%);
+  width: 100.16px;
+  height: 100.16px; 
+  z-index: 1;
+}
+
+.item_phot_third_left {
+  top: 36%;
+  left: 28.5%;
+  transform: translate(-50%, -50%);
+  width: 112.69px;
+  height: 112.69px;
+}
+
+.item_phot_third_right {
+  top: 37%;
+  left: 71.5%;
+  transform: translate(-50%, -50%);
+  width: 112.69px;
+  height: 112.69px;
+}
+
+.item_phot_force {
+  top: 59%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 247.16px;
+  height: 136px;
+}
+
+.item_phot_name {
+  bottom: 37%;
+  left: 10.5%;
+  width: 239.35px;
+  height: 28.38px;
+}
+
+.item_phot_second_name {
+  bottom: 38%;
+  left: 3%;
+  width: 282.02px;
+  height: 29.27px;
+  z-index: 4;
+}
+
+.item_phot_x {
+  bottom: 40.5%;
+  left: 47.5%;    
+  width: 15px;
+  height: 15px;
+  z-index: 1;
+}
+
+.item_phot_x_left {
+  bottom: 40.5%;
+  left: 34%;
+  width: 15px;
+  height: 15px;
+  z-index: 5;
+}
+
+.item_phot_x_right {
+  bottom: 40.5%;
+  left: 62.8%;
+  width: 15px;
+  height: 15px;
+  z-index: 5;
+}
+
+.item_time {
+  top: 2.5%;
+  left: -1.5%;
+  width: 88px;
+  height: 31px;
+}
+
+/* Schedule item text */
+.comment,
+.comment_sub,
+.comment_third {
+  position: relative;
+  max-width: 300px;
+  width: 100%;
+  top: 54%;
+  display: flex;
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text); 
+  line-height: 25px;
+  padding: 0 23px;
+  text-align: left;
+}
+
+#hour {
+  display: flex;
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text); 
+  line-height: var(--font-size-md);
+  width: 100%;
+  justify-content: left;
+  margin: 10.8px 0;
+  margin-left: 10.5px;
+  z-index: 2; 
+}  
+
+.speaker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#fullname {
+  position: absolute;
+  top: 51.5%;
+  left: -29.5%;
+  font-size: 11.92px;
+  font-weight: var(--font-weight-bold);
+  line-height: 11.92px;
+  letter-spacing: 0.08em;
+  text-align: center;   
+  color: var(--color-text);   
+  z-index: 10;  
+}
+
+#fullname_center {
+  position: absolute;
+  top: 53.5%;
+  left: 0.5%;
+  font-size: 15px;
+  font-weight: var(--font-weight-bold);
+  line-height: 15px;
+  letter-spacing: 0.08em;
+  text-align: center;   
+  color: var(--color-text);   
+  z-index: 10;      
+}
+
+#fullname_right {
+  position: absolute;
+  top: 53.5%;
+  left: 30.5%;
+  font-size: 15px;
+  font-weight: var(--font-weight-bold);
+  line-height: 15px;
+  letter-spacing: 0.08em;
+  text-align: center;   
+  color: var(--color-text);   
+  z-index: 10;       
+}
+
+/* Hidden items for accordion */
+.hidden {
+  display: none;
+}
+
+.show {
+  display: block;
+}
