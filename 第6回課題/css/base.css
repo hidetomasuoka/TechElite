@@ -1,172 +1,102 @@
-/* 
- * base.css - 基本スタイル、コンテナ、共通要素
- */
+/* Import variables */
+@import 'variables.css';
 
-/* ===== CSS変数 ===== */
-:root {
-    --accent-color: #00A8F0;
-    --yellow-accent: #FDD35C;
-    --text-color: #444545;
-    --white-color: #FFFFFF;
-    --line-color: #06C755;
-    --container-width: 960px; /* コンテナ幅の変数を追加 */
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* ===== 基本スタイル ===== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* Typography reset */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+  font-weight: normal;
+  line-height: normal;
+}
+
+/* Global styles */
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-    font-family: 'Noto Sans JP', sans-serif;
-    font-size: 16px;
-    line-height: 1.6;
-    color: var(--text-color);
-    background-color: #fff;
+  font-family: var(--font-family-primary);
+  color: var(--color-text);
+  line-height: var(--line-height-md);
 }
 
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-    transition: all 0.3s ease;
-}
-
-/* ===== コンテナ ===== */
+/* Common utility classes */
 .container {
-    width: 100%;
-    max-width: var(--container-width);
-    margin: 0 auto;
-    padding: 0 20px;
+  overflow: hidden;
+  position: relative;
+  background-image: url("../img/backdround.png");
+  display: flex;
+  background-size: cover;
+  background-position: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  width: 100%;
+  height: 841.11px;
 }
 
-/* ===== ボタン ===== */
-.btn-primary {
-    display: inline-flex;
-    align-items: center;
-    background-color: var(--line-color);
-    color: var(--white-color);
-    padding: 15px 40px;
-    border-radius: 60px;
-    font-size: 24px;
-    font-weight: 700;
-    border: 2px solid var(--white-color);
-    text-align: center;
-    line-height: 1.4;
-    gap: 10px;
+.section {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 38px;
+  overflow: hidden;
 }
 
-.btn-primary:hover {
-    opacity: 0.9;
+/* Common text styles */
+.content h1,
+.content h4,
+.content h5,
+.content h6 {
+  font-family: var(--font-family-secondary);
+  font-size: var(--font-size-title-lg);
+  font-style: italic;
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-xxl);
+  text-align: center;
+  margin-bottom: var(--spacing-md);
+  width: 100%;
+  letter-spacing: -0.8px;
+  padding-right: var(--spacing-sm);
 }
 
-.btn-outline {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background-color: transparent;
-    color: var(--white-color);
-    padding: 15px 30px;
-    border-radius: 50px;
-    font-size: 22px;
-    font-weight: 700;
-    border: 1.6px solid var(--white-color);
-    text-align: center;
-    transition: all 0.3s ease;
+.content p {
+  display: flex;
+  position: relative;
+  align-items: center;
+  text-align: center; 
+  justify-content: center;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+  line-height: var(--line-height-sm);
+  margin-bottom: var(--spacing-xxl);
+  max-width: var(--container-max); 
+  width: 100%;      
 }
 
-.btn-outline:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+/* Color-specific heading styles */
+.content h1 {
+  color: var(--color-secondary);
 }
 
-.line-icon {
-    width: 30px;
-    height: 30px;
+.content h4,
+.content h5 {
+  color: var(--color-accent);
 }
 
-/* ===== セクション共通 ===== */
-section {
-    padding: 80px 0;
+.content h6 {
+  color: var(--color-primary);
 }
-
-.section-header {
-    text-align: center;
-    margin-bottom: 60px;
-}
-
-.section-title-jp {
-    position: relative;
-    display: inline-block;
-    color: #444545;
-    font-family: "Noto Sans JP";
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 100%; /* 18px */
-}
-
-/* 線を削除 */
-.section-title-jp::before,
-.section-title-jp::after {
-    content: none;
-}
-
-.section-title-en {
-    max-width: 100%; /* 最大幅を設定 */
-    height: auto;
-    flex-shrink: 0;
-    font-family: 'Roboto', sans-serif;
-    font-size: 60px;
-    font-weight: 700;
-    font-style: italic;
-    color: #81D7FC;
-    line-height: 100%; /* 60px */
-    margin: 0 auto 20px;
-    text-align: center;
-    white-space: nowrap; /* テキストの改行を防止 */
-}
-
-.accent-color {
-    color: var(--yellow-accent);
-}
-
-/* ===== ユーティリティクラス ===== */
-.text-center {
-    text-align: center;
-}
-
-.text-right {
-    text-align: right;
-}
-
-.font-bold {
-    font-weight: 700;
-}
-
-.text-22 {
-    font-size: 22px;
-    line-height: 1.4;
-}
-
-.text-20 {
-    font-size: 20px;
-    line-height: 1.4;
-}
-
-.text-18 {
-    font-size: 18px;
-    line-height: 1.4;
-}
-
-.text-16 {
-    font-size: 16px;
-    line-height: 1.4;
-}
-

@@ -1,0 +1,18 @@
+/* Main CSS file that imports all modular CSS files */
+
+/* Import variables first */
+@import 'variables.css';
+
+/* Import base styles */
+@import 'base.css';
+
+/* Import component styles */
+@import 'components/header.css';
+@import 'components/decorative.css';
+@import 'components/event-items.css';
+@import 'components/time-schedule.css';
+@import 'components/faq.css';
+@import 'components/footer.css';
+
+/* Import media queries last */
+@import 'media-queries.css';

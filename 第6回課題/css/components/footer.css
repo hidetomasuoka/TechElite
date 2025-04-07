@@ -1,0 +1,114 @@
+/* Import variables */
+@import '../variables.css';
+
+/* Footer container */
+.footer_container {
+  background-color: var(--color-dark-gray);
+  padding-top: 58px;
+  text-align: center;
+  height: 355px;
+}
+
+/* Footer button */
+.footer_button {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 30px;
+}
+
+.footer_button a {
+  display: block;
+  position: relative;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.footer_button a:hover {
+  opacity: 0.8;
+}
+
+.footer_button img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.footer_button_text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+  font-size: var(--font-size-xxl);
+  font-weight: var(--font-weight-bold);
+  line-height: 31.86px;
+  color: var(--color-white);
+  text-decoration: none;
+  display: block;
+}
+
+/* Footer border */
+.footer_border {
+  width: 83%;
+  max-width: var(--container-xl);
+  transform: translateY(-20%);
+  margin: 0px auto;
+}
+
+.footer_border img {
+  width: 100%;
+}
+
+/* Footer logo */
+.footer_logo {
+  display: flex;
+  justify-content: center;
+}
+
+.footer_logo img {
+  max-width: 210px;
+  max-height: 64px;
+  height: 100px;
+  margin-top: 5px;
+  margin-left: 14px;
+  transition: opacity 0.3s ease;
+}
+
+.footer_logo a:hover img {
+  opacity: 0.8;
+}
+
+/* Footer text */
+.announce {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-md);
+  color: var(--color-white);
+  margin-top: 40px;
+  letter-spacing: 1px;
+  margin-left: 12px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.announce:hover {
+  opacity: 0.8;
+}
+
+.security {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-md);
+  color: var(--color-white);
+  margin-top: 40px;
+  margin-left: 43px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.security:hover {
+  opacity: 0.8;
+}

@@ -1,0 +1,112 @@
+/* Import variables */
+@import '../variables.css';
+
+.header {
+  background-image: url("../../img/stocksun_logo.png");
+  background-repeat: no-repeat;
+  position: absolute;
+  background-size: contain;
+  top: 12.8px;
+  left: 39.9px;
+  width: 188px;
+  height: 50px;
+  opacity: 1;
+}
+
+.logo {
+  height: auto;
+  z-index: var(--z-index-base);
+}
+
+.sub-title {
+  font-size: var(--font-size-title-md);
+  font-weight: var(--font-weight-bold);
+  line-height: 28px;
+  max-width: 480px;
+  width: 100%;
+  height: 33px;
+  margin: 0 auto;
+  text-align: center;   
+  color: var(--color-white);   
+  margin-top: 15px;
+}
+
+.kv {
+  background-image: url("../../img/kv.svg");
+  max-width: 562px;
+  width: 100%;
+  height: 342.34px;
+  margin-top: 40.1px;
+}
+
+.kv_sp {
+  background-image: url("../../img/sub_title.png");
+  display: none;
+}
+
+.schedule {
+  background-image: url("../../img/day.png");  
+  background-repeat: no-repeat;
+  text-align: center;
+  max-width: 381px;
+  width: 100%;
+  height: 70.75px;
+  margin-top: 18px;
+  margin-bottom: -5px;
+  margin-right: 5px;
+}
+
+.spot {
+  max-width: 408px;
+  width: 100%;
+  height: 35px;
+  font-size: 29.19px;
+  line-height: 29.19px;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-white); 
+  padding-bottom: 79px;
+}
+
+.line {
+  max-width: 54px;
+  width: 100%;
+}
+
+/* Application icon fixed position */
+.application-icon {
+  position: fixed;
+  right: 0%; 
+  top: 27%;  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: var(--z-index-fixed);
+}
+
+.application-icon_sub {
+  display: none;
+}
+
+/* Mobile application button */
+.pre-register-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  background-color: #06C755;
+  color: var(--color-white);
+  text-decoration: none;
+  border-radius: 50px;
+  font-size: 19.6px;
+  font-weight: var(--font-weight-bold);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+  
+.pre-register-button:hover {
+  background-color: #218838;
+}
+  
+.line-icon {
+  width: 46.55px;
+  height: 46.55px;
+  margin-left: 8px;
+}

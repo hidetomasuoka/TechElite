@@ -1,0 +1,68 @@
+:root {
+  /* Colors */
+  --color-primary: #00A8F0;
+  --color-secondary: #81D7FC;
+  --color-accent: #FDD35C;
+  --color-text: #444545;
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+  --color-gray: #C4C4C4;
+  --color-dark-gray: #333333;
+  --color-bg-light: #F1FBFF99;
+  --color-bg-cream: #FFF6DE;
+
+  /* Typography */
+  --font-family-primary: 'Noto Sans JP', sans-serif;
+  --font-family-secondary: 'Roboto', sans-serif;
+  
+  --font-size-xs: 9.12px;
+  --font-size-sm: 14px;
+  --font-size-md: 16px;
+  --font-size-lg: 18px;
+  --font-size-xl: 20px;
+  --font-size-xxl: 22px;
+  --font-size-title-sm: 26px;
+  --font-size-title-md: 28px;
+  --font-size-title-lg: 60px;
+  
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+  
+  --line-height-xs: 13px;
+  --line-height-sm: 18px;
+  --line-height-md: 24px;
+  --line-height-lg: 30px;
+  --line-height-xl: 40px;
+  --line-height-xxl: 60px;
+
+  /* Spacing */
+  --spacing-xs: 5px;
+  --spacing-sm: 10px;
+  --spacing-md: 20px;
+  --spacing-lg: 30px;
+  --spacing-xl: 40px;
+  --spacing-xxl: 60px;
+
+  /* Border */
+  --border-radius-sm: 5px;
+  --border-width-thin: 0.5px;
+  --border-width-regular: 1px;
+  --border-style-dotted: 0.69px dotted var(--color-gray);
+
+  /* Transitions */
+  --transition-default: all 0.3s ease;
+
+  /* Z-index layers */
+  --z-index-base: 1;
+  --z-index-header: 10;
+  --z-index-modal: 100;
+  --z-index-fixed: 1000;
+
+  /* Container widths */
+  --container-sm: 500px;
+  --container-md: 700px;
+  --container-lg: 960px;
+  --container-xl: 1192px;
+  --container-max: 1440px;
+}
