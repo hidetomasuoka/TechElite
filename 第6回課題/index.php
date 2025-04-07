@@ -274,7 +274,7 @@
                         </div>   
                     </div>
             </div>
-            <button class="accordion_button" style="display: block;">Read more</button>
+            <button class="accordion_button">Read more</button>
         </div>  
     </section>  
     <section class=section id="faq_section">
